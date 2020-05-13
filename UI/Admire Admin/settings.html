@@ -1,0 +1,464 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Admire</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="img/logo1.ico"/>
+
+    <!--global styles-->
+    <link type="text/css" rel="stylesheet" href="css/components.css"/>
+    <link type="text/css" rel="stylesheet" href="css/custom.css"/>
+    <!-- end of global styles-->
+    <link type="text/css" rel="stylesheet" href="vendors/c3/css/c3.min.css"/>
+    <link type="text/css" rel="stylesheet" href="vendors/toastr/css/toastr.min.css"/>
+     <link type="text/css" rel="stylesheet" href="vendors/switchery/css/switchery.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/pages/new_dashboard.css"/>
+    <link type="text/css" rel="stylesheet" href="#" id="skin_change"/>
+
+</head>
+
+<body class="body">
+<div class="preloader" style=" position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100000;
+  backface-visibility: hidden;
+  background: #ffffff;">
+    <div class="preloader_img" style="width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 48%;
+  top: 48%;
+  background-position: center;
+z-index: 999999">
+        <img src="img/loader.gif" style=" width: 40px;" alt="loading...">
+    </div>
+</div>
+<div class="bg-dark" id="wrap">
+    <div id="top">
+        <!-- .navbar -->
+        <nav class="navbar navbar-static-top">
+            <div class="container-fluid m-0">
+                <a class="navbar-brand float-left text-center" href="index.html">
+                    <h4 class="text-white"><img src="img/logow.png" class="admin_img" alt="logo">&nbsp;&nbsp;Ads Monitor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                </a>
+                
+                <div class="menu">
+                    <span class="toggle-left" id="menu-toggle">
+                        <i class="fa fa-bars text-white"></i>
+                    </span>
+                </div>
+                <div class="topnav dropdown-menu-right float-right">
+                    <div class="btn-group">
+                        <a class="btn btn-default btn-sm messages toggle-right">
+                            &nbsp;
+                            <i class="fa fa-cog text-white"></i>
+                            &nbsp;
+                        </a>
+                    </div>
+                    <div class="btn-group">
+                        <div class="user-settings no-bg">
+                            <button type="button" class="btn btn-default no-bg micheal_btn" data-toggle="dropdown">
+                                <img src="img/admin.jpg" class="admin_img2 rounded-circle avatar-img" alt="avatar"> <strong>Micheal</strong>
+                                <span class="fa fa-sort-down white_bg"></span>
+                            </button>
+                            <div class="dropdown-menu admire_admin">
+                                <a class="dropdown-item title" href="#">
+                                    Admire Admin</a>
+                                <a class="dropdown-item" href="edit_user.html"><i class="fa fa-cogs"></i>
+                                    Account Settings</a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-user"></i>
+                                    User Status
+                                </a>
+                                <a class="dropdown-item" href="mail_inbox.html"><i class="fa fa-envelope"></i>
+                                    Inbox</a>
+
+                                <a class="dropdown-item" href="lockscreen.html"><i class="fa fa-lock"></i>
+                                    Lock Screen</a>
+                                <a class="dropdown-item" href="login.html"><i class="fa fa-sign-out"></i>
+                                    Log Out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-toggleable-sm col-xl-6 col-lg-6 hidden-md-down float-right  top_menu" id="nav-content">
+                    <a class="navbar-brand float-left text-center" href="#">
+                                <h4 class="text-white">&nbsp;&nbsp;Media Hound Tool&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                            </a>
+                </div>
+            </div>
+
+            <!-- /.container-fluid --> </nav>
+        <!-- /.navbar -->
+        <!-- /.head --> </div>
+    <!-- /#top -->
+    <div class="wrapper">
+        <div id="left">
+            <div class="media user-media bg-dark dker">
+                <div class="user-media-toggleHover">
+                    <span class="fa fa-user"></span>
+                </div>
+                <div class="user-wrapper bg-dark">
+                    <a class="user-link" href="">
+                        <img class="media-object img-thumbnail user-img rounded-circle admin_img3" alt="User Picture"
+                             src="img/admin.jpg">
+                        <p class="text-white user-info">Welcome Micheal</p>
+                    </a>
+                    <div class="search_bar col-lg-12">
+                        <div class="input-group">
+                            <input type="search" class="form-control" placeholder="search">
+                            <span class="input-group-btn">
+<button class="btn without_border" type="button"><span class="fa fa-search">
+</span></button>
+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #menu -->
+            <ul id="menu" class="bg-blue dker">
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fa fa-home"></i>
+                        <span class="link-title">&nbsp;Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="company.html">
+                        <i class="fa fa-home"></i>
+                        <span class="link-title">&nbsp;Company Management</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="user.html">
+                        <i class="fa fa-home"></i>
+                        <span class="link-title">&nbsp;User Management</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="settings.html">
+                        <i class="fa fa-home"></i>
+                        <span class="link-title">&nbsp;Settings Management</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="station.html">
+                        <i class="fa fa-home"></i>
+                        <span class="link-title">&nbsp;Station Management</span>
+                    </a>
+                </li>        
+            </ul>
+            <!-- /#menu -->
+        </div>
+        <!-- /#left -->
+        <div id="content" class="bg-container">
+            <header class="head">
+                <div class="main-bar">
+                    <div class="row">
+                    <div class="col-6">
+                        <h4 class="m-t-5">
+                            <i class="fa fa-home"></i>
+                            Dashboard
+                        </h4>
+                    </div>
+                    </div>
+                </div>
+            </header>
+            <div class="outer">
+                    <div class="inner bg-light lter bg-container">
+                        <div class="card">                         
+                            <div class="card-block m-t-35">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="card">
+                                            <div class="card-header bg-white">
+                                                <strong>Order Summary</strong>
+                                            </div>
+                                            <div class="card-block m-t-35">
+                                                <div class="table-responsive">
+                                                    <table class="table table-sm">
+                                                        <thead>
+                                                        <tr>
+                                                            <td>
+                                                                <strong>Item Name</strong>
+                                                            </td>
+                                                            <td>
+                                                                <strong>Price</strong>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <strong>Item Quantity</strong>
+                                                            </td>
+                                                            <td></td>
+                                                            <td class="text-right">
+                                                                <strong>Total</strong>
+                                                            </td>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>Samsung Galaxy Grand</td>
+                                                            <td>$700</td>
+                                                            <td class="text-center">1</td>
+                                                            <td></td>
+                                                            <td class="text-right">$700</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Samsung Galaxy Core 2</td>
+                                                            <td>$1110</td>
+                                                            <td class="text-center">1</td>
+                                                            <td></td>
+                                                            <td class="text-right">$1110</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Screen Protector</td>
+                                                            <td>$7</td>
+                                                            <td class="text-center">4</td>
+                                                            <td></td>
+                                                            <td class="text-right">$28</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="highrow"></td>
+                                                            <td class="highrow"></td>
+                                                            <td class="highrow text-center"></td>
+                                                            <td class="highrow text-right">
+                                                                <strong>Sub Total &nbsp;</strong>
+                                                            </td>
+                                                            <td class="highrow text-right">
+                                                                <strong>$1838</strong>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="emptyrow"></td>
+                                                            <td class="emptyrow"></td>
+                                                            <td class="emptyrow text-center"></td>
+                                                            <td class="emptyrow text-right">
+                                                                <strong>Shipping &nbsp;</strong>
+                                                            </td>
+                                                            <td class="highrow text-right">
+                                                                <strong>$20</strong>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="emptyrow">
+                                                                <i class="livicon" data-name="barcode" data-size="60" data-loop="true"></i>
+                                                            </td>
+                                                            <td class="emptyrow"></td>
+                                                            <td class="emptyrow text-center"></td>
+                                                            <td class="emptyrow text-right">
+                                                                <strong>Total &nbsp;</strong>
+                                                            </td>
+                                                            <td class="highrow text-right">
+                                                                <strong>$1858</strong>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-6">
+                                        <button type="button" class="btn  button-alignment btn-success m-t-15" data-toggle="button">
+                                            Submit Invoice
+                                        </button>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-6 invoice_print" >
+                                <span class="pull-sm-right">
+                                    <a style="color:#fff;" class="btn button-alignment btn-info m-t-15" data-toggle="button" onclick="javascript:window.print();">
+                                        Print
+                                    </a>
+                                    <button type="button" class="btn button-alignment btn-warning m-t-15" data-toggle="button">
+                                        Cancel
+                                    </button>
+                                </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.inner -->
+                </div>
+                <!-- /.outer -->
+            </div>
+            <!-- /#content -->
+        </div>
+    </div>
+    <!--wrapper-->
+    <div id="right">
+        <div class="right_content">
+            <div class="alert alert-success white_txt">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Welcome Micheal
+                    <br/></strong>
+                Set Your Skin Here. Checkout Admin Statistics. Good Day!.
+            </div>
+            <div class="well well-small dark">
+                <div class="xs_skin_hide hidden-sm-up toggle-right"> <i class="fa fa-cog"></i></div>
+                <h4 class="brown_txt">
+                    <span class="fa-stack fa-sm">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-paint-brush fa-stack-1x fa-inverse"></i>
+                </span>
+                    Skins
+                </h4>
+                <br/>
+
+                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('blue_black_skin.css','css')">
+                    <div class="skin_blue skin_size"></div>
+                    <div class="skin_black skin_size"></div>
+                </div>
+                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('green_black_skin.css','css')">
+                    <div class="skin_green skin_size"></div>
+                    <div class="skin_black skin_size"></div>
+                </div>
+                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('purple_black_skin.css','css')">
+                    <div class="skin_purple skin_size"></div>
+                    <div class="skin_black skin_size"></div>
+                </div>
+                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('orange_black_skin.css','css')">
+                    <div class="skin_orange skin_size"></div>
+                    <div class="skin_black skin_size"></div>
+                </div>
+                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('red_black_skin.css','css')">
+                    <div class="skin_red skin_size"></div>
+                    <div class="skin_black skin_size"></div>
+                </div>
+                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('mint_black_skin.css','css')">
+                    <div class="skin_mint skin_size"></div>
+                    <div class="skin_black skin_size"></div>
+                </div>
+                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('brown_black_skin.css','css')">
+                    <div class="skin_brown skin_size"></div>
+                    <div class="skin_black skin_size"></div>
+                </div>
+                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('black_skin.css','css')">
+                    <div class="skin_black skin_size"></div>
+                    <div class="skin_black skin_size"></div>
+                </div>
+                <div class="skin_btn skin_blue" onclick="javascript:loadjscssfile('blue_skin.css','css')"></div>
+                <div class="skin_btn skin_green" onclick="javascript:loadjscssfile('green_skin.css','css')"></div>
+                <div class="skin_btn skin_purple" onclick="javascript:loadjscssfile('purple_skin.css','css')"></div>
+                <div class="skin_btn skin_orange" onclick="javascript:loadjscssfile('orange_skin.css','css')"></div>
+                <div class="skin_btn skin_red" onclick="javascript:loadjscssfile('red_skin.css','css')"></div>
+                <div class="skin_btn skin_mint" onclick="javascript:loadjscssfile('mint_skin.css','css')"></div>
+                <div class="skin_btn skin_brown" onclick="javascript:loadjscssfile('brown_skin.css','css')"></div>
+                <div class="skin_btn skin_black" onclick="javascript:loadjscssfile('black_skin.css','css')"></div>
+
+            </div>
+            <div class="well well-small dark">
+                <h4 class="brown_txt margin15_bottom">
+                    <img src="img/admin.jpg" width="32" height="32" class="rounded-circle avatar-img" alt="avatar"> &nbsp;Admin
+                    Statistics</h4>
+                <br/>
+                <ul class="list-unstyled">
+                    <li class="green_txt margin15_bottom">
+                <span class="fa-stack fa-sm">
+                    <i class="fa fa-circle fa-stack-2x text-mint"></i>
+                    <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+                </span>
+                        &nbsp; Last Login
+                        <span class="inlinesparkline float-right">2hrs Back</span>
+                    </li>
+                    <li class="warning_txt margin15_bottom">
+                        <span class="fa-stack fa-sm">
+                      <i class="fa fa-circle fa-stack-2x text-brown"></i>
+                      <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                    </span>
+                        &nbsp; Pending Tasks
+                        <span class="dynamicsparkline float-right">12</span>
+                    </li>
+                    <li class="primary_txt margin15_bottom">
+                        <span class="fa-stack fa-sm">
+                      <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                      <i class="fa fa-cloud fa-stack-1x fa-inverse"></i>
+                    </span>
+                        &nbsp; Weather Today
+                        <span class="dynamicbar float-right">Rainy</span>
+                    </li>
+                    <li class="margin15_bottom">
+                        <span class="fa-stack fa-sm">
+                      <i class="fa fa-circle fa-stack-2x text-brown"></i>
+                      <i class="fa fa-calendar fa-stack-1x fa-inverse"></i>
+                    </span>
+                        &nbsp; Events
+                        <span class="inlinebar float-right">Team Out</span>
+                    </li>
+                    <li class="success_txt margin15_bottom">
+                        <span class="fa-stack fa-sm">
+                      <i class="fa fa-circle fa-stack-2x text-success"></i>
+                      <i class="fa fa-bell fa-stack-1x fa-inverse"></i>
+                    </span>
+                        &nbsp; Notifications
+                        <span class="inlinebar float-right">5</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="well well-small dark right_progressbar_section">
+                <h4 class="brown_txt">
+                    <span class="fa-stack fa-sm">
+                      <i class="fa fa-circle fa-stack-2x text-brown"></i>
+                      <i class="fa fa-hand-o-down fa-stack-1x fa-inverse"></i>
+                    </span>
+                    Alerts
+                </h4>
+                <br/>
+                <span>Sales Improvement</span>
+                <span class="float-right">
+                <small>20%</small>
+            </span>
+
+                <div class="progress">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <span>Server Load</span>
+                <span class="float-right">
+                <small>80%</small>
+            </span>
+                <div class="progress">
+                    <div class="progress-bar bg-mint" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <span>Traffic Improvement</span>
+                <span class="float-right">
+                <small>55%</small>
+            </span>
+                <div class="progress">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- # right side -->
+</div>
+<!-- /#wrap -->
+<!-- global scripts-->
+<script type="text/javascript" src="js/components.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+<!-- global scripts end-->
+
+<script type="text/javascript" src="vendors/raphael/js/raphael-min.js"></script>
+<script type="text/javascript" src="vendors/d3/js/d3.min.js"></script>
+<script type="text/javascript" src="vendors/c3/js/c3.min.js"></script>
+<script type="text/javascript" src="vendors/toastr/js/toastr.min.js"></script>
+<script type="text/javascript" src="vendors/switchery/js/switchery.min.js"></script>
+<script type="text/javascript" src="vendors/flotchart/js/jquery.flot.js" ></script>
+<script type="text/javascript" src="vendors/flotchart/js/jquery.flot.resize.js"></script>
+<script type="text/javascript" src="vendors/flotchart/js/jquery.flot.stack.js"></script>
+<script type="text/javascript" src="vendors/flotchart/js/jquery.flot.time.js"></script>
+<script type="text/javascript" src="vendors/flotspline/js/jquery.flot.spline.min.js"></script>
+<script type="text/javascript" src="vendors/flotchart/js/jquery.flot.categories.js"></script>
+<script type="text/javascript" src="vendors/flotchart/js/jquery.flot.pie.js"></script>
+<script type="text/javascript" src="vendors/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+<script type="text/javascript" src="vendors/jquery_newsTicker/js/newsTicker.js"></script>
+<script type="text/javascript" src="vendors/countUp.js/js/countUp.min.js"></script>
+
+<!--end of plugin scripts-->
+<script type="text/javascript" src="js/pages/new_dashboard.js"></script>
+
+</body>
+</html>

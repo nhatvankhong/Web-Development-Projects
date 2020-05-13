@@ -1,0 +1,593 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Admire</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="img/logo1.ico"/>
+
+    <!--global styles-->
+    <link type="text/css" rel="stylesheet" href="css/components.css"/>
+    <link type="text/css" rel="stylesheet" href="css/custom.css"/>
+    <!-- end of plugin styles -->
+    <link type="text/css" rel="stylesheet" href="css/pages/wizards.css"/>
+    <link type="text/css" rel="stylesheet" href="css/pages/general_components.css"/>
+    <link type="text/css" rel="stylesheet" href="css/pages/mail_box.css"/>
+    <link type="text/css" rel="stylesheet" href="#" id="skin_change"/>
+
+</head>
+
+<body class="body">
+<div class="preloader" style=" position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100000;
+  backface-visibility: hidden;
+  background: #ffffff;">
+    <div class="preloader_img" style="width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 48%;
+  top: 48%;
+  background-position: center;
+z-index: 999999">
+        <img src="img/loader.gif" style=" width: 40px;" alt="loading...">
+    </div>
+</div>
+<div class="bg-dark" id="wrap">
+    <div id="top">
+        <!-- .navbar -->
+        <nav class="navbar navbar-static-top">
+            <div class="container-fluid m-0">
+                <a class="navbar-brand float-left text-center" href="index.html">
+                    <h4 class="text-white"><img src="img/logow.png" class="admin_img" alt="logo">&nbsp;&nbsp;Ads Monitor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                </a>
+                
+                <div class="menu">
+                    <span class="toggle-left" id="menu-toggle">
+                        <i class="fa fa-bars text-white"></i>
+                    </span>
+                </div>
+                <div class="topnav dropdown-menu-right float-right">
+                    <div class="btn-group">
+                        <a class="btn btn-default btn-sm messages toggle-right">
+                            &nbsp;
+                            <i class="fa fa-cog text-white"></i>
+                            &nbsp;
+                        </a>
+                    </div>
+                    <div class="btn-group">
+                        <div class="user-settings no-bg">
+                            <button type="button" class="btn btn-default no-bg micheal_btn" data-toggle="dropdown">
+                                <img src="img/admin.jpg" class="admin_img2 rounded-circle avatar-img" alt="avatar"> <strong>Micheal</strong>
+                                <span class="fa fa-sort-down white_bg"></span>
+                            </button>
+                            <div class="dropdown-menu admire_admin">
+                                <a class="dropdown-item title" href="#">
+                                    Admire Admin</a>
+                                <a class="dropdown-item" href="edit_user.html"><i class="fa fa-cogs"></i>
+                                    Account Settings</a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-user"></i>
+                                    User Status
+                                </a>
+                                <a class="dropdown-item" href="mail_inbox.html"><i class="fa fa-envelope"></i>
+                                    Inbox</a>
+
+                                <a class="dropdown-item" href="lockscreen.html"><i class="fa fa-lock"></i>
+                                    Lock Screen</a>
+                                <a class="dropdown-item" href="login.html"><i class="fa fa-sign-out"></i>
+                                    Log Out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-toggleable-sm col-xl-6 col-lg-6 hidden-md-down float-right  top_menu" id="nav-content">
+                    <a class="navbar-brand float-left text-center" href="#">
+                                <h4 class="text-white">&nbsp;&nbsp;Media Hound Tool&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                            </a>
+                </div>
+            </div>
+            </nav>
+         </div>
+    <div class="wrapper">
+        <div id="left">
+            <div class="media user-media bg-dark dker">
+                <div class="user-media-toggleHover">
+                    <span class="fa fa-user"></span>
+                </div>
+                <div class="user-wrapper bg-dark">
+                    <a class="user-link" href="">
+                        <img class="media-object img-thumbnail user-img rounded-circle admin_img3" alt="User Picture"
+                             src="img/admin.jpg">
+                        <p class="text-white user-info">Welcome Micheal</p>
+                    </a>
+                    <div class="search_bar col-lg-12">
+                        <div class="input-group">
+                            <input type="search" class="form-control" placeholder="search">
+                            <span class="input-group-btn">
+<button class="btn without_border" type="button"><span class="fa fa-search">
+</span></button>
+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #menu -->
+            <ul id="menu" class="bg-blue dker">
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fa fa-home"></i>
+                        <span class="link-title">&nbsp;Dashboard</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="company.html">
+                        <i class="fa fa-home"></i>
+                        <span class="link-title">&nbsp;Company Management</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="user.html">
+                        <i class="fa fa-home"></i>
+                        <span class="link-title">&nbsp;User Management</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="settings.html">
+                        <i class="fa fa-home"></i>
+                        <span class="link-title">&nbsp;Settings Management</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="station.html">
+                        <i class="fa fa-home"></i>
+                        <span class="link-title">&nbsp;Station Management</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="station.html">
+                        <i class="fa fa-home"></i>
+                        <span class="link-title">&nbsp;Audio Management</span>
+                    </a>
+                </li>               
+            </ul>
+            <!-- /#menu -->
+        </div>
+        <!-- /#left -->
+        <div id="content" class="bg-container">
+            <div class="outer form_wizzards">
+                <div class="inner bg-container ">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <!--<div class="card-header bg-white">
+                                    <i class="fa fa-file-text-o"></i>
+                                    Register Company
+                                </div>-->
+                                <div class="card-block m-t-5">
+                                    <!--main content-->
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <!-- BEGIN FORM WIZARD WITH VALIDATION -->
+                                            <form id="commentForm" method="post" action="#" class="validate">
+                                                <div id="rootwizard">
+                                                    <ul class="nav nav-pills">
+                                                        <li class="nav-item m-t-10">
+                                                            <a class="nav-link" href="#tab1" data-toggle="tab">
+                                                                <span class="userprofile_tab1">1</span>Company Profile</a>
+                                                        </li>
+                                                        <li class="nav-item m-t-10">
+                                                            <a class="nav-link" href="#tab2" data-toggle="tab">
+                                                                <span class="userprofile_tab2">2</span>Stations Profile</a>
+                                                        </li>
+                                                        <li class="nav-item m-t-10">
+                                                            <a class="nav-link" href="#tab3"
+                                                               data-toggle="tab"><span>3</span>Contacts Profile</a>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="tab-content m-t-10">
+                                                        <div class="tab-pane" id="tab1">
+                                                            <div class="form-group">
+                                                                <label for="companyname" class="control-label">Company Name *</label>
+                                                                <input id="companyName" name="companyname" type="text" placeholder="Enter Company Name"
+                                                                       class="form-control required">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="website" class="control-label">Company Website</label>
+                                                                <input id="website" name="website"
+                                                                       placeholder="Enter company website"
+                                                                       type="text"
+                                                                       class="form-control">
+                                                            </div>
+                                                            <ul class="pager wizard pager_a_cursor_pointer">
+                                                                <li class="previous">
+                                                                    <a><i class="fa fa-long-arrow-left"></i>
+                                                                        Previous</a>
+                                                                </li>
+                                                                <li class="next">
+                                                                    <a>Next <i class="fa fa-long-arrow-right"></i>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="next finish" style="display:none;">
+                                                                    <a>Finish</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="tab-pane" id="tab2">
+                            <div class="card mail mail_sent_all media_max_991">
+                                <div class="card-header bg-white">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-12 m-t-10 dropdown_list_hover">
+                                            <!--<div class="btn-group float-left table-bordereds">
+                                                <label class="custom-control custom-checkbox mb-0 mr-0">
+                                                    <input type="checkbox" class="custom-control-input select_all_mail">
+                                                    <span class="custom-control-indicator"></span>
+                                                </label>
+                                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li class="select-all1">
+                                                        <span>All</span>
+                                                    </li>
+                                                    <li id="select-none">
+                                                        <span>None</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="btn-group float-left table-bordered text-primary" id="refresh_draft">
+                                                <i class="fa fa-refresh"></i>
+                                            </div>-->
+                                        </div>
+                                        <div class="col-sm-6 col-12">
+                                            <div class="input-group margin bottom">
+                                                <input type="text" class="form-control inbox_search_height m-t-10" placeholder="Search">
+                                                <span class="input-group-btn">
+                                                <button type="button" class="btn btn-primary inbox_search_height m-t-10">Search</button>
+                                            </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-block p-d-0">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="checker m-l-20">
+                                                        <label class="custom-control custom-checkbox">
+                                                            <input name="checkbox" type="checkbox"
+                                                                   class="custom-control-input ">
+                                                            <span class="custom-control-indicator"></span>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>NTV</td>
+                                                <td></td>
+                                                <td>11/04/2014 14:35 AM</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="checker m-l-20">
+                                                        <label class="custom-control custom-checkbox">
+                                                            <input name="checkbox" type="checkbox"
+                                                                   class="custom-control-input ">
+                                                            <span class="custom-control-indicator"></span>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>UBC TV</td>
+                                                <td></td>
+                                                <td>11/04/2014 14:35 AM</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="checker m-l-20">
+                                                        <label class="custom-control custom-checkbox">
+                                                            <input name="checkbox" type="checkbox"
+                                                                   class="custom-control-input ">
+                                                            <span class="custom-control-indicator"></span>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>NBS TV</td>
+                                                <td></td>
+                                                <td>11/04/2014 14:35 AM</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="checker m-l-20">
+                                                        <label class="custom-control custom-checkbox">
+                                                            <input name="checkbox" type="checkbox"
+                                                                   class="custom-control-input ">
+                                                            <span class="custom-control-indicator"></span>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                                <td>Radio Uganda</td>
+                                                <td></td>
+                                                <td>11/04/2014 14:35 AM</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-8 col-12 m-t-10"></div>
+                                    <div class="m-t-10 col-sm-4 col-12 ">
+                                            <ul class="pagination pagination_padding_general_components">
+                                                <li class="page-item active">
+                                                    <a href="#">PREVIOUS</a>
+                                                </li>
+                                                <li class="page-item">
+                                                    <a href="#">1</a>
+                                                </li>
+                                                <li class="page-item active">
+                                                    <a href="#">2</a>
+                                                </li>
+                                                <li class="page-item">
+                                                    <a href="#">3</a>
+                                                </li>
+                                                <li class="page-item disabled">
+                                                    <a href="#">4</a>
+                                                </li>
+                                                <li class="page-item active">
+                                                    <a href="#">NEXT</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                </div>
+
+                                            
+                                                            <ul class="pager wizard pager_a_cursor_pointer">
+                                                                <li class="previous">
+                                                                    <a><i class="fa fa-long-arrow-left"></i>
+                                                                        Previous</a>
+                                                                </li>
+                                                                <li class="next">
+                                                                    <a>Next <i class="fa fa-long-arrow-right"></i>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="next finish" style="display:none;">
+                                                                    <a>Finish</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="tab-pane" id="tab3">
+                                                            <div class="form-group">
+                                                                <label for="personname" class="control-label">Contact Name *</label>
+                                                                <input id="personname" name="personname" type="text" placeholder="Enter Contacts Name"
+                                                                       class="form-control required">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="email" class="control-label">Email Address</label>
+                                                                <input id="email" name="email"
+                                                                       placeholder="Enter Email Address"
+                                                                       type="text"
+                                                                       class="form-control">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="phoneNumber" class="control-label">Phone Number</label>
+                                                                <input id="phoneNumber" name="phoneNumber"
+                                                                       placeholder="Enter Phone Number"
+                                                                       type="text"
+                                                                       class="form-control">
+                                                            </div>
+                                                            <ul class="pager wizard pager_a_cursor_pointer">
+                                                                <li class="previous">
+                                                                    <a><i class="fa fa-long-arrow-left"></i>
+                                                                        Previous</a>
+                                                                </li>
+                                                                <li class="next">
+                                                                    <a>Next <i class="fa fa-long-arrow-right"></i>
+                                                                    </a>
+                                                                </li>
+                                                                <li class="next finish" style="display:none;">
+                                                                    <a>Finish</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="myModal" class="modal fade" role="dialog">
+                                                    <div class="modal-dialog">
+                                                        <!-- Modal content-->
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+
+                                                                <h4 class="modal-title">Wizard</h4>
+                                                                <button type="button" class="close"
+                                                                        data-dismiss="modal">&times;</button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p>You Submitted Successfully.</p>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-default"
+                                                                        data-dismiss="modal">
+                                                                    OK
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--main content end-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.inner -->
+        </div>
+    </div>
+    <!--wrapper-->
+    <div id="right">
+        <div class="right_content">
+            <div class="alert alert-success white_txt">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Welcome Micheal
+                    <br/></strong>
+                Set Your Skin Here. Checkout Admin Statistics. Good Day!.
+            </div>
+            <div class="well well-small dark">
+                <div class="xs_skin_hide hidden-sm-up toggle-right"> <i class="fa fa-cog"></i></div>
+                <h4 class="brown_txt">
+                    <span class="fa-stack fa-sm">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-paint-brush fa-stack-1x fa-inverse"></i>
+                </span>
+                    Skins
+                </h4>
+                <br/>
+
+                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('blue_black_skin.css','css')">
+                    <div class="skin_blue skin_size"></div>
+                    <div class="skin_black skin_size"></div>
+                </div>
+                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('green_black_skin.css','css')">
+                    <div class="skin_green skin_size"></div>
+                    <div class="skin_black skin_size"></div>
+                </div>
+                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('purple_black_skin.css','css')">
+                    <div class="skin_purple skin_size"></div>
+                    <div class="skin_black skin_size"></div>
+                </div>
+                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('orange_black_skin.css','css')">
+                    <div class="skin_orange skin_size"></div>
+                    <div class="skin_black skin_size"></div>
+                </div>
+                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('red_black_skin.css','css')">
+                    <div class="skin_red skin_size"></div>
+                    <div class="skin_black skin_size"></div>
+                </div>
+                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('mint_black_skin.css','css')">
+                    <div class="skin_mint skin_size"></div>
+                    <div class="skin_black skin_size"></div>
+                </div>
+                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('brown_black_skin.css','css')">
+                    <div class="skin_brown skin_size"></div>
+                    <div class="skin_black skin_size"></div>
+                </div>
+                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('black_skin.css','css')">
+                    <div class="skin_black skin_size"></div>
+                    <div class="skin_black skin_size"></div>
+                </div>
+                <div class="skin_btn skin_blue" onclick="javascript:loadjscssfile('blue_skin.css','css')"></div>
+                <div class="skin_btn skin_green" onclick="javascript:loadjscssfile('green_skin.css','css')"></div>
+                <div class="skin_btn skin_purple" onclick="javascript:loadjscssfile('purple_skin.css','css')"></div>
+                <div class="skin_btn skin_orange" onclick="javascript:loadjscssfile('orange_skin.css','css')"></div>
+                <div class="skin_btn skin_red" onclick="javascript:loadjscssfile('red_skin.css','css')"></div>
+                <div class="skin_btn skin_mint" onclick="javascript:loadjscssfile('mint_skin.css','css')"></div>
+                <div class="skin_btn skin_brown" onclick="javascript:loadjscssfile('brown_skin.css','css')"></div>
+                <div class="skin_btn skin_black" onclick="javascript:loadjscssfile('black_skin.css','css')"></div>
+
+            </div>
+            <div class="well well-small dark">
+                <h4 class="brown_txt margin15_bottom">
+                    <img src="img/admin.jpg" width="32" height="32" class="rounded-circle avatar-img" alt="avatar"> &nbsp;Admin
+                    Statistics</h4>
+                <br/>
+                <ul class="list-unstyled">
+                    <li class="green_txt margin15_bottom">
+                <span class="fa-stack fa-sm">
+                    <i class="fa fa-circle fa-stack-2x text-mint"></i>
+                    <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+                </span>
+                        &nbsp; Last Login
+                        <span class="inlinesparkline float-right">2hrs Back</span>
+                    </li>
+                    <li class="warning_txt margin15_bottom">
+                        <span class="fa-stack fa-sm">
+                      <i class="fa fa-circle fa-stack-2x text-brown"></i>
+                      <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                    </span>
+                        &nbsp; Pending Tasks
+                        <span class="dynamicsparkline float-right">12</span>
+                    </li>
+                    <li class="primary_txt margin15_bottom">
+                        <span class="fa-stack fa-sm">
+                      <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                      <i class="fa fa-cloud fa-stack-1x fa-inverse"></i>
+                    </span>
+                        &nbsp; Weather Today
+                        <span class="dynamicbar float-right">Rainy</span>
+                    </li>
+                    <li class="margin15_bottom">
+                        <span class="fa-stack fa-sm">
+                      <i class="fa fa-circle fa-stack-2x text-brown"></i>
+                      <i class="fa fa-calendar fa-stack-1x fa-inverse"></i>
+                    </span>
+                        &nbsp; Events
+                        <span class="inlinebar float-right">Team Out</span>
+                    </li>
+                    <li class="success_txt margin15_bottom">
+                        <span class="fa-stack fa-sm">
+                      <i class="fa fa-circle fa-stack-2x text-success"></i>
+                      <i class="fa fa-bell fa-stack-1x fa-inverse"></i>
+                    </span>
+                        &nbsp; Notifications
+                        <span class="inlinebar float-right">5</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="well well-small dark right_progressbar_section">
+                <h4 class="brown_txt">
+                    <span class="fa-stack fa-sm">
+                      <i class="fa fa-circle fa-stack-2x text-brown"></i>
+                      <i class="fa fa-hand-o-down fa-stack-1x fa-inverse"></i>
+                    </span>
+                    Alerts
+                </h4>
+                <br/>
+                <span>Sales Improvement</span>
+                <span class="float-right">
+                <small>20%</small>
+            </span>
+
+                <div class="progress">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <span>Server Load</span>
+                <span class="float-right">
+                <small>80%</small>
+            </span>
+                <div class="progress">
+                    <div class="progress-bar bg-mint" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <span>Traffic Improvement</span>
+                <span class="float-right">
+                <small>55%</small>
+            </span>
+                <div class="progress">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- # right side -->
+</div>
+<!-- /#wrap -->
+
+<!-- global scripts-->
+<script type="text/javascript" src="js/components.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+<!-- end of global scripts-->
+<!--Plugin scripts-->
+<script type="text/javascript" src="vendors/bootstrapvalidator/js/bootstrapValidator.min.js"></script>
+<script type="text/javascript" src="vendors/twitter-bootstrap-wizard/js/jquery.bootstrap.wizard.min.js"></script>
+
+<script type="text/javascript" src="js/pages/mail_sent.js"></script>
+<script type="text/javascript" src="js/pages/wizard.js"></script>
+<!-- end page level scripts -->
+</body>
+</html>

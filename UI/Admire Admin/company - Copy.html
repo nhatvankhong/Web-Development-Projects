@@ -1,0 +1,815 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Admire</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="img/logo1.ico"/>
+
+    <!--global styles-->
+    <link type="text/css" rel="stylesheet" href="css/components.css"/>
+    <link type="text/css" rel="stylesheet" href="css/custom.css"/>
+    <!-- end of global styles
+    <link type="text/css" rel="stylesheet" href="vendors/c3/css/c3.min.css"/>
+    <link type="text/css" rel="stylesheet" href="vendors/toastr/css/toastr.min.css"/>
+     <link type="text/css" rel="stylesheet" href="vendors/switchery/css/switchery.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/pages/new_dashboard.css"/>
+    <link type="text/css" rel="stylesheet" href="#" id="skin_change"/>-->
+    <!--plugin styles-->
+    <link type="text/css" rel="stylesheet" href="vendors/select2/css/select2.min.css" />
+    <link type="text/css" rel="stylesheet" href="vendors/datatables/css/scroller.bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="vendors/datatables/css/colReorder.bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="vendors/datatables/css/dataTables.bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/pages/dataTables.bootstrap.css" />
+    <link type="text/css" rel="stylesheet" href="css/plugincss/responsive.dataTables.min.css" />
+    <!-- end of plugin styles -->
+    <!--Page level styles-->
+    <link type="text/css" rel="stylesheet" href="css/pages/tables.css" />
+    <link type="text/css" rel="stylesheet" href="#" id="skin_change" />
+
+</head>
+
+<body class="body">
+<div class="preloader" style=" position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100000;
+  backface-visibility: hidden;
+  background: #ffffff;">
+    <div class="preloader_img" style="width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 48%;
+  top: 48%;
+  background-position: center;
+z-index: 999999">
+        <img src="img/loader.gif" style=" width: 40px;" alt="loading...">
+    </div>
+</div>
+<div class="bg-dark" id="wrap">
+    <div id="top">
+        <!-- .navbar -->
+        <nav class="navbar navbar-static-top">
+            <div class="container-fluid m-0">
+                <a class="navbar-brand float-left text-center" href="index.html">
+                    <h4 class="text-white"><img src="img/logow.png" class="admin_img" alt="logo">&nbsp;&nbsp;Ads Monitor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                </a>
+                
+                <div class="menu">
+                    <span class="toggle-left" id="menu-toggle">
+                        <i class="fa fa-bars text-white"></i>
+                    </span>
+                </div>
+                <div class="topnav dropdown-menu-right float-right">
+                    <div class="btn-group">
+                        <a class="btn btn-default btn-sm messages toggle-right">
+                            &nbsp;
+                            <i class="fa fa-cog text-white"></i>
+                            &nbsp;
+                        </a>
+                    </div>
+                    <div class="btn-group">
+                        <div class="user-settings no-bg">
+                            <button type="button" class="btn btn-default no-bg micheal_btn" data-toggle="dropdown">
+                                <img src="img/admin.jpg" class="admin_img2 rounded-circle avatar-img" alt="avatar"> <strong>Micheal</strong>
+                                <span class="fa fa-sort-down white_bg"></span>
+                            </button>
+                            <div class="dropdown-menu admire_admin">
+                                <a class="dropdown-item title" href="#">
+                                    Admire Admin</a>
+                                <a class="dropdown-item" href="edit_user.html"><i class="fa fa-cogs"></i>
+                                    Account Settings</a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa fa-user"></i>
+                                    User Status
+                                </a>
+                                <a class="dropdown-item" href="mail_inbox.html"><i class="fa fa-envelope"></i>
+                                    Inbox</a>
+
+                                <a class="dropdown-item" href="lockscreen.html"><i class="fa fa-lock"></i>
+                                    Lock Screen</a>
+                                <a class="dropdown-item" href="login.html"><i class="fa fa-sign-out"></i>
+                                    Log Out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-toggleable-sm col-xl-6 col-lg-6 hidden-md-down float-right  top_menu" id="nav-content">
+                    <a class="navbar-brand float-left text-center" href="#">
+                                <h4 class="text-white">&nbsp;&nbsp;Media Hound Tool&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                            </a>
+                </div>
+            </div>
+
+            <!-- /.container-fluid --> </nav>
+        <!-- /.navbar -->
+        <!-- /.head --> </div>
+    <!-- /#top -->
+    <div class="wrapper">
+        <div id="left">
+            <div class="media user-media bg-dark dker">
+                <div class="user-media-toggleHover">
+                    <span class="fa fa-user"></span>
+                </div>
+                <div class="user-wrapper bg-dark">
+                    <a class="user-link" href="">
+                        <img class="media-object img-thumbnail user-img rounded-circle admin_img3" alt="User Picture"
+                             src="img/admin.jpg">
+                        <p class="text-white user-info">Welcome Micheal</p>
+                    </a>
+                    <div class="search_bar col-lg-12">
+                        <div class="input-group">
+                            <input type="search" class="form-control" placeholder="search">
+                            <span class="input-group-btn">
+<button class="btn without_border" type="button"><span class="fa fa-search">
+</span></button>
+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #menu -->
+            <ul id="menu" class="bg-blue dker">
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fa fa-home"></i>
+                        <span class="link-title">&nbsp;Dashboard</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="company.html">
+                        <i class="fa fa-home"></i>
+                        <span class="link-title">&nbsp;Company Management</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="user.html">
+                        <i class="fa fa-home"></i>
+                        <span class="link-title">&nbsp;User Management</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="settings.html">
+                        <i class="fa fa-home"></i>
+                        <span class="link-title">&nbsp;Settings Management</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="station.html">
+                        <i class="fa fa-home"></i>
+                        <span class="link-title">&nbsp;Station Management</span>
+                    </a>
+                </li>               
+            </ul>
+            <!-- /#menu -->
+        </div>
+        <!-- /#left -->
+        <div id="content" class="bg-container">
+            <header class="head">
+                <div class="main-bar">
+                    <div class="row">
+                    <div class="col-6">
+                        <h4 class="m-t-5">
+                            <i class="fa fa-home"></i>
+                            Company Information
+                        </h4>
+                    </div>
+                    </div>
+                </div>
+            </header>
+            <div class="outer">
+                <div class="inner bg-container forms">
+                    <div class="row">
+                        <div class="col-lg-12">
+                    <div class="card">
+                       <div class="card-block col-lg-12">
+                               <div class="col-lg-12">
+                                   <div class="row">
+                                               <div class="col-xl-3 col-md-3 m-t-25">
+                                                   <button class="btn btn-raised btn-danger adv_cust_mod_btn"
+                                                        data-toggle="modal" data-target="#modal-21">Add/Edit Company
+                                                    </button>
+                                               </div>
+                                               
+                                               <div class="col-xl-3 col-md-3 m-t-25">
+                                                   <button class="btn btn-primary">Delete Company</button>
+                                               </div>
+
+                                                <div class="col-xl-3 col-md-3 m-t-25">
+                                                   <button class="btn btn-success">Add Contact</button>
+                                               </div>
+                                               <div class="col-xl-3 col-md-3 m-t-25">
+                                                   <button class="btn btn-warning">Add Station</button>
+                                               </div>
+                                   </div>
+                               </div>
+                       </div>
+                   </div>
+                   </div>
+                   </div>
+                   
+                   <div class="row">
+                            <div class="col-12 data_tables m-t-35">
+                                <div class="card">
+                                    <div class="card-header bg-white">
+                                        <i class="fa fa-table"></i> Registered Companys
+                                    </div>
+                                   <div class="card-block p-t-10">
+                                        <div class=" m-t-25">
+                                            <table class="table table-striped table-bordered table-hover " id="sample_6">
+                                            <thead>
+                                                <tr>
+                                                    <th>First name</th>
+                                                    <th>Last name</th>
+                                                    <th>Department</th>
+                                                    <th>Salary</th>
+                                                    <th>Company</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+
+<tbody>
+    <tr>
+        <td>Estell</td>
+        <td>Ward</td>
+        <td>Music</td>
+        <td>$5779</td>
+        <td>Willms - Harber</td>
+        <td>
+                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
+    </tr>
+    <tr>
+        <td>Zackery</td>
+        <td>Cartwright</td>
+        <td>Outdoors</td>
+        <td>$7859</td>
+        <td>Blick and Sons</td>
+        <td>
+                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
+    </tr>
+    <tr>
+        <td>Vladimir</td>
+        <td>Kreiger</td>
+        <td>Grocery</td>
+        <td>$5337</td>
+        <td>Predovic - Stiedemann</td>
+        <td>
+                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
+    </tr>
+    <tr>
+        <td>Edd</td>
+        <td>Satterfield</td>
+        <td>Computers</td>
+        <td>$4131</td>
+        <td>Wilderman, Volkman and Hyatt</td>
+        <td>
+                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
+    </tr>
+    <tr>
+        <td>Josh</td>
+        <td>Gleichner</td>
+        <td>Industrial</td>
+        <td>$6370</td>
+        <td>Ruecker and Sons</td>
+        <td>
+                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
+    </tr>
+    <tr>
+        <td>Nyasia</td>
+        <td>Flatley</td>
+        <td>Tools</td>
+        <td>$7303</td>
+        <td>Schultz LLC</td>
+        <td>
+                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
+    </tr>
+    <tr>
+        <td>Ansel</td>
+        <td>Schmidt</td>
+        <td>Garden</td>
+        <td>$3206</td>
+        <td>Gutmann Group</td>
+        <td>
+                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
+    </tr>
+    <tr>
+        <td>Reinhold</td>
+        <td>Murphy</td>
+        <td>Automotive</td>
+        <td>$3803</td>
+        <td>Grant - Effertz</td>
+        <td>
+                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
+    </tr>
+    <tr>
+        <td>Patience</td>
+        <td>Rowe</td>
+        <td>Industrial</td>
+        <td>$2059</td>
+        <td>Gutmann LLC</td>
+        <td>
+                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
+    </tr>
+    <tr>
+        <td>Mack</td>
+        <td>Bechtelar</td>
+        <td>Computers</td>
+        <td>$8387</td>
+        <td>Kuvalis Group</td>
+        <td>
+                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
+    </tr>
+    <tr>
+        <td>Shemar</td>
+        <td>Schroeder</td>
+        <td>Shoes</td>
+        <td>$4877</td>
+        <td>Huels - Kling</td>
+        <td>
+                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
+    </tr>
+    <tr>
+        <td>Benjamin</td>
+        <td>Walker</td>
+        <td>Beauty</td>
+        <td>$9479</td>
+        <td>Stamm, Howe and Mraz</td>
+        <td>
+                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
+    </tr>
+    <tr>
+        <td>Jana</td>
+        <td>Pouros</td>
+        <td>Books</td>
+        <td>$6469</td>
+        <td>Pollich and Sons</td>
+        <td>
+                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
+    </tr>
+    <tr>
+        <td>Favian</td>
+        <td>Turner</td>
+        <td>Health</td>
+        <td>$8729</td>
+        <td>Fritsch - Funk</td>
+        <td>
+                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
+    </tr>
+    <tr>
+        <td>Cyril</td>
+        <td>Wolff</td>
+        <td>Computers</td>
+        <td>$9357</td>
+        <td>Runte Inc</td>
+        <td>
+                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
+    </tr>
+    <tr>
+        <td>Enrique</td>
+        <td>Lakin</td>
+        <td>Automotive</td>
+        <td>$8676</td>
+        <td>Ziemann - Dach</td>
+        <td>
+                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
+    </tr>
+    <tr>
+        <td>Zane</td>
+        <td>Hayes</td>
+        <td>Shoes</td>
+        <td>$3308</td>
+        <td>Luettgen Inc</td>
+        <td>
+                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
+    </tr>
+    <tr>
+        <td>Jennings</td>
+        <td>Hartmann</td>
+        <td>Grocery</td>
+        <td>$4084</td>
+        <td>Mosciski - Cummerata</td>
+        <td>
+                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
+    </tr>
+    <tr>
+        <td>Muhammad</td>
+        <td>Kiehn</td>
+        <td>Computers</td>
+        <td>$7328</td>
+        <td>Nolan - Champlin</td>
+        <td>
+                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
+    </tr>
+    <tr>
+        <td>Ned</td>
+        <td>Rohan</td>
+        <td>Electronics</td>
+        <td>$4029</td>
+        <td>Gislason - Rau</td>
+        <td>
+                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
+    </tr>
+    <tr>
+        <td>Nestor</td>
+        <td>Wisoky</td>
+        <td>Books</td>
+        <td>$4923</td>
+        <td>Buckridge LLC</td>
+        <td>
+                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
+    </tr>
+    <tr>
+        <td>Mark</td>
+        <td>O'Connell</td>
+        <td>Beauty</td>
+        <td>$9228</td>
+        <td>Kohler, Huels and Grimes</td>
+        <td>
+                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
+    </tr>
+    <tr>
+        <td>Sigmund</td>
+        <td>Kuphal</td>
+        <td>Kids</td>
+        <td>$4319</td>
+        <td>O'Connell Inc</td>
+        <td>
+                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
+    </tr>
+    <tr>
+        <td>Yasmeen</td>
+        <td>Trantow</td>
+        <td>Home</td>
+        <td>$3879</td>
+        <td>Will - Zboncak</td>
+        <td>
+                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
+    </tr>
+    <tr>
+        <td>Kory</td>
+        <td>Dibbert</td>
+        <td>Outdoors</td>
+        <td>$5853</td>
+        <td>Rosenbaum - Klocko</td>
+        <td>
+                                                        <a href="#" class="btn btn-success btn-xs purple">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
+    </tr>
+</tbody>
+                              
+
+                                                 </table>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="large" tabindex="-1" role="dialog" aria-labelledby="modalLabelLarge" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modalLabelLarge">Large Modal</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    This is a modal window. You can do the following things with it:
+                                </p>
+                                <ul>
+                                    <li>
+                                        <strong>Read:</strong> modal windows will probably tell you something important
+                                        so don't forget to read what they say.
+                                    </li>
+                                    <li>
+                                        <strong>Look:</strong> a modal window enjoys a certain kind of attention; just
+                                        look at it and appreciate its presence.
+                                    </li>
+                                    <li>
+                                        <strong>Close:</strong> click on the button below to close the modal.
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn  btn-secondary" data-dismiss="modal">Close me!</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="modal-21" role="dialog" aria-labelledby="modalLabeldanger">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header bg-danger">
+                                <h4 class="modal-title text-white" id="modalLabeldanger">Add New Company</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="col-lg-12">
+                            <div class="card">
+                                
+                                <div class="card-block">
+                                    <div class="row">
+                                        <div class="col-lg-6 input_field_sections">
+                                            <h5>Default</h5>
+                                            <form>
+                                                <input type="text" class="form-control" name="default"
+                                                       value="Default text"/>
+                                            </form>
+                                        </div>
+                                        <div class="col-lg-6 input_field_sections">
+                                            <h5>Rounded</h5>
+                                            <form>
+                                                <input name="rounded" type="text" class="form-control rounded_input"/>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 input_field_sections">
+                                            <h5>Placeholder</h5>
+                                            <form>
+                                                <input type="text" class="form-control"
+                                                       placeholder="Placeholder input"/>
+                                            </form>
+                                        </div>
+                                        
+                                        <div class="col-lg-6 input_field_sections">
+                                            <h5>Rounded</h5>
+                                            <form>
+                                                <input name="rounded" type="text" class="form-control rounded_input"/>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn  btn-danger" data-dismiss="modal">Save</button>
+
+                                <button class="btn  btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--- end modals-->
+                </div>
+
+                </div>
+                <!-- /.outer -->
+            </div>
+            <!-- /#content -->
+        </div>
+    </div>
+    <!--wrapper-->
+    <div id="right">
+        <div class="right_content">
+            <div class="alert alert-success white_txt">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Welcome Micheal
+                    <br/></strong>
+                Set Your Skin Here. Checkout Admin Statistics. Good Day!.
+            </div>
+            <div class="well well-small dark">
+                <div class="xs_skin_hide hidden-sm-up toggle-right"> <i class="fa fa-cog"></i></div>
+                <h4 class="brown_txt">
+                    <span class="fa-stack fa-sm">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-paint-brush fa-stack-1x fa-inverse"></i>
+                </span>
+                    Skins
+                </h4>
+                <br/>
+
+                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('blue_black_skin.css','css')">
+                    <div class="skin_blue skin_size"></div>
+                    <div class="skin_black skin_size"></div>
+                </div>
+                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('green_black_skin.css','css')">
+                    <div class="skin_green skin_size"></div>
+                    <div class="skin_black skin_size"></div>
+                </div>
+                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('purple_black_skin.css','css')">
+                    <div class="skin_purple skin_size"></div>
+                    <div class="skin_black skin_size"></div>
+                </div>
+                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('orange_black_skin.css','css')">
+                    <div class="skin_orange skin_size"></div>
+                    <div class="skin_black skin_size"></div>
+                </div>
+                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('red_black_skin.css','css')">
+                    <div class="skin_red skin_size"></div>
+                    <div class="skin_black skin_size"></div>
+                </div>
+                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('mint_black_skin.css','css')">
+                    <div class="skin_mint skin_size"></div>
+                    <div class="skin_black skin_size"></div>
+                </div>
+                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('brown_black_skin.css','css')">
+                    <div class="skin_brown skin_size"></div>
+                    <div class="skin_black skin_size"></div>
+                </div>
+                <div class="skinmulti_btn" onclick="javascript:loadjscssfile('black_skin.css','css')">
+                    <div class="skin_black skin_size"></div>
+                    <div class="skin_black skin_size"></div>
+                </div>
+                <div class="skin_btn skin_blue" onclick="javascript:loadjscssfile('blue_skin.css','css')"></div>
+                <div class="skin_btn skin_green" onclick="javascript:loadjscssfile('green_skin.css','css')"></div>
+                <div class="skin_btn skin_purple" onclick="javascript:loadjscssfile('purple_skin.css','css')"></div>
+                <div class="skin_btn skin_orange" onclick="javascript:loadjscssfile('orange_skin.css','css')"></div>
+                <div class="skin_btn skin_red" onclick="javascript:loadjscssfile('red_skin.css','css')"></div>
+                <div class="skin_btn skin_mint" onclick="javascript:loadjscssfile('mint_skin.css','css')"></div>
+                <div class="skin_btn skin_brown" onclick="javascript:loadjscssfile('brown_skin.css','css')"></div>
+                <div class="skin_btn skin_black" onclick="javascript:loadjscssfile('black_skin.css','css')"></div>
+
+            </div>
+            <div class="well well-small dark">
+                <h4 class="brown_txt margin15_bottom">
+                    <img src="img/admin.jpg" width="32" height="32" class="rounded-circle avatar-img" alt="avatar"> &nbsp;Admin
+                    Statistics</h4>
+                <br/>
+                <ul class="list-unstyled">
+                    <li class="green_txt margin15_bottom">
+                <span class="fa-stack fa-sm">
+                    <i class="fa fa-circle fa-stack-2x text-mint"></i>
+                    <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+                </span>
+                        &nbsp; Last Login
+                        <span class="inlinesparkline float-right">2hrs Back</span>
+                    </li>
+                    <li class="warning_txt margin15_bottom">
+                        <span class="fa-stack fa-sm">
+                      <i class="fa fa-circle fa-stack-2x text-brown"></i>
+                      <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                    </span>
+                        &nbsp; Pending Tasks
+                        <span class="dynamicsparkline float-right">12</span>
+                    </li>
+                    <li class="primary_txt margin15_bottom">
+                        <span class="fa-stack fa-sm">
+                      <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                      <i class="fa fa-cloud fa-stack-1x fa-inverse"></i>
+                    </span>
+                        &nbsp; Weather Today
+                        <span class="dynamicbar float-right">Rainy</span>
+                    </li>
+                    <li class="margin15_bottom">
+                        <span class="fa-stack fa-sm">
+                      <i class="fa fa-circle fa-stack-2x text-brown"></i>
+                      <i class="fa fa-calendar fa-stack-1x fa-inverse"></i>
+                    </span>
+                        &nbsp; Events
+                        <span class="inlinebar float-right">Team Out</span>
+                    </li>
+                    <li class="success_txt margin15_bottom">
+                        <span class="fa-stack fa-sm">
+                      <i class="fa fa-circle fa-stack-2x text-success"></i>
+                      <i class="fa fa-bell fa-stack-1x fa-inverse"></i>
+                    </span>
+                        &nbsp; Notifications
+                        <span class="inlinebar float-right">5</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="well well-small dark right_progressbar_section">
+                <h4 class="brown_txt">
+                    <span class="fa-stack fa-sm">
+                      <i class="fa fa-circle fa-stack-2x text-brown"></i>
+                      <i class="fa fa-hand-o-down fa-stack-1x fa-inverse"></i>
+                    </span>
+                    Alerts
+                </h4>
+                <br/>
+                <span>Sales Improvement</span>
+                <span class="float-right">
+                <small>20%</small>
+            </span>
+
+                <div class="progress">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <span>Server Load</span>
+                <span class="float-right">
+                <small>80%</small>
+            </span>
+                <div class="progress">
+                    <div class="progress-bar bg-mint" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <span>Traffic Improvement</span>
+                <span class="float-right">
+                <small>55%</small>
+            </span>
+                <div class="progress">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- # right side -->
+</div>
+<!-- /#wrap -->
+
+
+<!-- global scripts-->
+    <script type="text/javascript" src="js/components.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <!--end of global scripts-->
+    <!--plugin scripts-->
+    <script type="text/javascript" src="vendors/select2/js/select2.js"></script>
+    <script type="text/javascript" src="vendors/datatables/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/pluginjs/dataTables.tableTools.js"></script>
+    <script type="text/javascript" src="vendors/datatables/js/dataTables.colReorder.min.js"></script>
+    <script type="text/javascript" src="vendors/datatables/js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="vendors/datatables/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="js/pluginjs/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="vendors/datatables/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="vendors/datatables/js/dataTables.rowReorder.min.js"></script>
+    <script type="text/javascript" src="vendors/datatables/js/buttons.colVis.min.js"></script>
+    <script type="text/javascript" src="vendors/datatables/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="vendors/datatables/js/buttons.bootstrap.min.js"></script>
+    <script type="text/javascript" src="vendors/datatables/js/buttons.print.min.js"></script>
+    <script type="text/javascript" src="vendors/datatables/js/dataTables.scroller.min.js"></script>
+    <!-- end of plugin scripts -->
+    <!--Page level scripts-->
+    <script type="text/javascript" src="js/pages/datatable.js"></script>
+    <!-- end of global scripts-->
+
+</body>
+</html>
