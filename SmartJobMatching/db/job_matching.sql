@@ -1,475 +1,269 @@
--- phpMyAdmin SQL Dump
--- version 4.8.5
--- https://www.phpmyadmin.net/
+-- MariaDB dump 10.17  Distrib 10.4.11-MariaDB, for Win64 (AMD64)
 --
--- Host: 127.0.0.1:3306
--- Generation Time: May 12, 2020 at 08:32 PM
--- Server version: 5.7.26
--- PHP Version: 7.2.18
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
+-- Host: localhost    Database: job_matching_demo
+-- ------------------------------------------------------
+-- Server version	10.4.11-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `job_matching`
---
-
--- --------------------------------------------------------
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
 -- Table structure for table `credentials`
 --
 
 DROP TABLE IF EXISTS `credentials`;
-CREATE TABLE IF NOT EXISTS `credentials` (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `credentials` (
   `user_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `password` varchar(50) DEFAULT NULL,
   `username` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `credentials`
 --
 
-INSERT INTO `credentials` (`user_id`, `password`, `username`) VALUES
-(1, 'qwerty', 'test@gmail.com'),
-(2, 'gemi123JOB', 'gemitest@gmail.com'),
-(3, 'qwertt', 'test1@gmail.com'),
-(4, '123', 'abcxyz@gmail.com');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `jobs`
---
-
-DROP TABLE IF EXISTS `jobs`;
-CREATE TABLE IF NOT EXISTS `jobs` (
-  `job_id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `description` varchar(500) DEFAULT NULL,
-  `experience` varchar(30) DEFAULT NULL,
-  `location` varchar(30) DEFAULT NULL,
-  `salary` double DEFAULT NULL,
-  `title` varchar(30) DEFAULT NULL,
-  `is_full_time` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`job_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `jobs`
---
-
-INSERT INTO `jobs` (`job_id`, `description`, `experience`, `location`, `salary`, `title`, `is_full_time`) VALUES
-(1, 'We are looking for a Front-End Web Developer who is motivated to combine the art of design with the art of programming. \r\nResponsibilities will include translation of the UI/UX design wireframes to actual code that will produce visual elements of \r\nthe application. You will work with the UI/UX designer and bridge the gap between graphical design and technical implementation and \r\ntaking an active role on both sides and defining how the application looks as well as how it works.', '2_under_5', 'Austin TX', 150000, 'Front-end Web Developer', 0),
-(2, 'We are looking for an analytical, results-driven Back-end Developer who will work with team members to troubleshoot and improve current back-end applications and processes. The Back-end Developer will use his or her understanding of programming languages and tools to analyze current codes and industry developments, formulate more efficient processes, solve problems, and create a more seamless experience for users. You should have excellent communication, computer, and project management skills.', '3_under_5', 'Washington, DC', 150000, 'Back-end Web Developer', 1),
-(3, 'We?re looking for a Full Stack developer who will take a key role on our team. Our Full Stack developer must have knowledge in all stages of software development.  You?ll be working alongside other engineers and developers collaborating on the various layers of the infrastructure for our platform', '5_under_8', 'Fairfield, IO', 260000, 'Full-stack Web Developer', 1),
-(4, 'We are looking for a skilled Software Engineer who along with our excellent software development team will be responsible for working on projects that are currently being developed on by our company. Duties will include but are not limited to developing and directing software system validation and testing methods, as well as directing our software programming initiatives. You will also be working closely with clients and cross-functional departments to communicate project statuses and proposals.', '1_under_2', 'Seattle, WA', 160000, 'Software Engineer', 1);
-
--- --------------------------------------------------------
+LOCK TABLES `credentials` WRITE;
+/*!40000 ALTER TABLE `credentials` DISABLE KEYS */;
+INSERT INTO `credentials` VALUES (1,'xxxxx','elly'),(2,'gemi123JOB','gemi'),(3,'qwertt','qas123'),(4,'123','abcxyz@gmail.com'),(5,'',''),(6,'149','haftom@gmail.com'),(7,'141','dennis@gmail.com'),(8,'123','emily@gmail.com'),(9,'472','taurus@gmail.com'),(10,'','afaeg');
+/*!40000 ALTER TABLE `credentials` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `job_skill_mappings`
 --
 
 DROP TABLE IF EXISTS `job_skill_mappings`;
-CREATE TABLE IF NOT EXISTS `job_skill_mappings` (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `job_skill_mappings` (
   `job_id` bigint(20) NOT NULL,
   `skill_id` bigint(20) NOT NULL,
   PRIMARY KEY (`job_id`,`skill_id`),
-  KEY `FK4m7nswu5w3q0r4gsr6q10em1n` (`skill_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `FK4m7nswu5w3q0r4gsr6q10em1n` (`skill_id`),
+  CONSTRAINT `FK4m7nswu5w3q0r4gsr6q10em1n` FOREIGN KEY (`skill_id`) REFERENCES `skills` (`skill_id`),
+  CONSTRAINT `FKb18cfyxgm0mg7crhthvcu83qt` FOREIGN KEY (`job_id`) REFERENCES `jobs` (`job_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `job_skill_mappings`
 --
 
-INSERT INTO `job_skill_mappings` (`job_id`, `skill_id`) VALUES
-(1, 4),
-(3, 4),
-(1, 8),
-(3, 9),
-(1, 13),
-(2, 13),
-(3, 14),
-(4, 20),
-(4, 23),
-(4, 29),
-(4, 38),
-(1, 43),
-(1, 48),
-(3, 48),
-(1, 51),
-(2, 53),
-(3, 54),
-(4, 54),
-(2, 59),
-(3, 59),
-(2, 64),
-(3, 64),
-(4, 69),
-(4, 73);
-
--- --------------------------------------------------------
+LOCK TABLES `job_skill_mappings` WRITE;
+/*!40000 ALTER TABLE `job_skill_mappings` DISABLE KEYS */;
+INSERT INTO `job_skill_mappings` VALUES (1,4),(1,8),(1,13),(1,43),(1,48),(1,51),(2,13),(2,53),(2,59),(2,64),(3,4),(3,9),(3,14),(3,48),(3,54),(3,59),(3,64),(4,20),(4,23),(4,29),(4,38),(4,54),(4,69),(4,73),(5,54),(5,59),(5,65),(6,5),(6,10),(6,15),(7,1),(7,6),(7,11),(8,5),(8,10),(8,15),(9,4),(9,9),(9,14),(10,3),(10,8),(10,13),(11,3),(11,8),(11,13),(12,2),(12,7),(12,12),(13,4),(13,9),(13,14),(14,3),(14,8),(14,13),(15,2),(15,7),(15,12),(16,57),(16,62),(16,67),(17,50),(17,55),(17,60),(17,65),(17,70),(18,49),(18,54),(18,59),(18,64),(18,69),(19,48),(19,53),(19,58),(19,63),(19,68),(20,47),(20,52),(20,57),(20,62),(20,67),(21,47),(21,52),(21,57),(21,62),(21,67),(22,46),(22,56),(22,61),(23,49),(23,53),(23,59),(23,64),(23,69),(24,56),(24,61),(24,66),(25,48),(25,53),(25,58),(25,64),(25,69),(26,50),(26,55),(26,60),(26,65),(26,70),(27,50),(27,56),(27,61),(27,66),(28,3),(28,8),(28,13),(28,43),(28,48),(28,53),(28,58),(28,63),(28,68),(29,3),(29,8),(29,13),(29,42),(29,47),(29,53),(29,58),(29,63),(29,67),(30,2),(30,7),(30,12),(30,42),(30,47),(30,51),(30,58),(30,63),(30,68),(31,2),(31,7),(31,12),(31,42),(31,47),(31,52),(31,57),(31,63),(31,68),(32,2),(32,7),(32,12),(32,42),(32,47),(32,58),(32,63),(32,67),(33,4),(33,9),(33,14),(33,44),(33,49),(33,54),(33,59),(33,64),(33,69),(34,3),(34,8),(34,13),(34,43),(34,48),(34,52),(34,58),(34,63),(34,68),(35,3),(35,8),(35,13),(35,43),(35,48),(35,52),(35,58),(35,63),(35,68),(36,3),(36,8),(36,13),(36,43),(36,48),(36,52),(36,58),(36,63),(36,68),(37,5),(37,10),(37,15),(37,45),(37,50),(37,55),(37,60),(37,65),(37,70),(38,4),(38,9),(38,14),(38,44),(38,48),(38,53),(38,60),(38,64),(38,69),(39,4),(39,9),(39,13),(39,43),(39,47),(39,53),(39,58),(39,63),(39,68),(40,18),(40,23),(40,28),(40,68),(40,73),(41,17),(41,22),(41,27),(41,37),(41,67),(41,72),(42,16),(42,21),(42,26),(42,36),(42,66),(42,71),(43,19),(43,23),(43,28),(43,39),(43,69),(43,74),(44,16),(44,21),(44,26),(44,36),(44,66),(44,71),(45,17),(45,22),(45,27),(45,32),(45,37),(45,68),(45,73),(46,20),(46,25),(46,30),(46,35),(46,40),(46,55),(46,60),(46,69),(46,75),(47,16),(47,21),(47,26),(47,36),(47,67),(47,72),(48,19),(48,24),(48,28),(48,33),(48,38),(48,69),(48,73),(49,18),(49,23),(49,28),(49,32),(49,38),(49,53),(49,58),(49,68),(49,73),(50,18),(50,23),(50,27),(50,32),(50,38),(50,53),(50,59),(50,68),(50,73),(51,18),(51,22),(51,27),(51,32),(51,38),(51,53),(51,58),(51,68),(51,73);
+/*!40000 ALTER TABLE `job_skill_mappings` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `job_technology_mappings`
 --
 
 DROP TABLE IF EXISTS `job_technology_mappings`;
-CREATE TABLE IF NOT EXISTS `job_technology_mappings` (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `job_technology_mappings` (
   `job_id` bigint(20) NOT NULL,
   `tech_id` bigint(20) NOT NULL,
   PRIMARY KEY (`job_id`,`tech_id`),
-  KEY `FKtog1hjfgel2cu8d04jmeobwx1` (`tech_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `FKtog1hjfgel2cu8d04jmeobwx1` (`tech_id`),
+  CONSTRAINT `FKqpedbt40ekl36y3x718bq36da` FOREIGN KEY (`job_id`) REFERENCES `jobs` (`job_id`),
+  CONSTRAINT `FKtog1hjfgel2cu8d04jmeobwx1` FOREIGN KEY (`tech_id`) REFERENCES `technologies` (`tech_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `job_technology_mappings`
 --
 
-INSERT INTO `job_technology_mappings` (`job_id`, `tech_id`) VALUES
-(1, 3),
-(2, 4),
-(3, 4),
-(1, 7),
-(3, 7),
-(1, 13),
-(1, 19),
-(3, 19),
-(2, 24),
-(3, 24),
-(4, 35),
-(4, 40),
-(4, 44),
-(1, 47),
-(4, 53),
-(4, 58),
-(4, 69),
-(2, 78),
-(3, 78),
-(4, 83);
-
--- --------------------------------------------------------
+LOCK TABLES `job_technology_mappings` WRITE;
+/*!40000 ALTER TABLE `job_technology_mappings` DISABLE KEYS */;
+INSERT INTO `job_technology_mappings` VALUES (1,3),(1,7),(1,13),(1,19),(1,47),(2,4),(2,24),(2,78),(3,4),(3,7),(3,19),(3,24),(3,78),(4,35),(4,40),(4,44),(4,53),(4,58),(4,69),(4,83),(5,25),(5,79),(5,84),(6,5),(6,10),(6,15),(6,20),(6,80),(7,14),(7,18),(8,9),(8,14),(8,20),(9,9),(9,14),(9,20),(10,9),(10,14),(10,20),(11,10),(11,14),(12,10),(12,14),(13,9),(13,14),(13,20),(14,9),(14,14),(14,20),(15,10),(15,14),(16,5),(16,83),(18,5),(18,20),(18,25),(19,5),(19,20),(19,25),(20,5),(20,20),(20,25),(21,5),(21,83),(22,4),(22,24),(22,78),(23,5),(23,20),(23,25),(24,4),(24,24),(24,78),(25,5),(25,20),(25,25),(26,5),(26,15),(26,20),(26,25),(26,80),(27,4),(27,24),(27,78),(28,4),(28,7),(28,19),(28,24),(28,78),(29,4),(29,7),(29,19),(29,24),(29,78),(30,4),(30,7),(30,19),(30,24),(30,78),(31,3),(31,9),(31,12),(31,24),(32,3),(32,9),(32,12),(32,24),(33,4),(33,7),(33,19),(33,24),(33,78),(34,4),(34,7),(34,19),(34,24),(34,78),(35,3),(35,9),(35,12),(35,24),(36,3),(36,9),(36,12),(36,24),(37,5),(37,10),(37,15),(37,20),(37,25),(37,50),(37,80),(38,4),(38,7),(38,19),(38,24),(38,78),(39,4),(39,7),(39,19),(39,24),(39,78),(40,29),(40,35),(40,40),(40,45),(40,53),(40,60),(40,64),(40,70),(41,28),(41,35),(41,40),(41,44),(41,60),(41,70),(41,84),(42,35),(42,40),(42,44),(42,53),(42,58),(42,69),(42,83),(43,29),(43,35),(43,40),(43,45),(43,53),(43,60),(43,64),(43,70),(44,35),(44,40),(44,44),(44,53),(44,58),(44,69),(44,83),(45,29),(45,35),(45,40),(45,45),(45,53),(45,60),(45,64),(45,70),(46,35),(46,40),(46,45),(46,55),(46,60),(46,65),(46,70),(46,75),(47,35),(47,40),(47,44),(47,53),(47,58),(47,69),(47,83),(48,29),(48,35),(48,40),(48,45),(48,53),(48,60),(48,64),(48,70),(49,29),(49,35),(49,40),(49,45),(49,53),(49,60),(49,64),(49,70),(50,29),(50,35),(50,40),(50,45),(50,53),(50,60),(50,64),(50,70),(51,28),(51,35),(51,40),(51,44),(51,60),(51,70),(51,84);
+/*!40000 ALTER TABLE `job_technology_mappings` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Table structure for table `profiles`
+-- Table structure for table `jobs`
 --
 
-DROP TABLE IF EXISTS `profiles`;
-CREATE TABLE IF NOT EXISTS `profiles` (
-  `profile_id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `experience` varchar(500) DEFAULT NULL,
-  `job_expected` varchar(500) DEFAULT NULL,
-  `user_id` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`profile_id`),
-  KEY `FKbblggxqwpx9jkvoc2og3ii9h9` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `jobs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `jobs` (
+  `job_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `description` varchar(500) DEFAULT NULL,
+  `experience` varchar(30) DEFAULT NULL,
+  `is_full_time` bit(1) DEFAULT NULL,
+  `location` varchar(30) DEFAULT NULL,
+  `salary` double DEFAULT NULL,
+  `title` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`job_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `profiles`
+-- Dumping data for table `jobs`
 --
 
-INSERT INTO `profiles` (`profile_id`, `experience`, `job_expected`, `user_id`) VALUES
-(2, '1-under-3', 'Front-end Web Developer', 4),
-(3, '1-under-3', 'Front-end Web Developer', 1);
-
--- --------------------------------------------------------
+LOCK TABLES `jobs` WRITE;
+/*!40000 ALTER TABLE `jobs` DISABLE KEYS */;
+INSERT INTO `jobs` VALUES (1,'We are looking for a Front-End Web Developer who is motivated to combine the art of design with the art of programming. Responsibilities will include translation of the UI/UX design wireframes to actual code that will produce visual elements of the application. You will work with the UI/UX designer and bridge the gap between graphical design and technical implementation, taking an active role on both sides and defining how the application looks as well as how it works.','2_under_5','\0','Austin, TX',150000,'Front-end Web Developer'),(2,'We are looking for an analytical, results-driven Back-end Developer who will work with team members to troubleshoot and improve current back-end applications and processes. The Back-end Developer will use his or her understanding of programming languages and tools to analyze current codes and industry developments, formulate more efficient processes, solve problems, and create a more seamless experience for users. You should have excellent communication, computer, and project management skills.','1_under_2','','Washington, DC',60000,'Back-end Web Developer'),(3,'As a company, it is our constant endeavor to extend aid to bright young engineers by offering them the opportunity to work with our highly skilled experts and gain foot-hold in their careers. We are looking for a Frontend developer to join our rapidly expanding engineering team. The primary focus of this developer will be to build new features and enhance our existing Web applications.','1_under_2','','Alaska, AK',75000,'Front-End Web Developer'),(4,'We are seeking a Front End Engineer experienced with Ember, React, or other client-side JavaScript frameworks and Node.js to join our team at our Pittsburgh office located in the Strip District.\n\nOur Engineers are designing and developing our market leading security training and assessment software. Our goal is to help organizations teach their employees secure behavior through interactive web applications, received and managed by our customers on our proprietary SaaS platform.\n\nThe ideal candid','5_under_8','','Arizona, AZ',260000,'Front-End Web Developer'),(5,'We are looking for a skilled Software Engineer who, along with our excellent software development team, will be responsible for working on projects that are currently being developed on by our company. Duties will include but are not limited to developing and directing software system validation and testing methods, as well as directing our software programming initiatives. You will also be working closely with clients and cross-functional departments to communicate project statuses and proposal','5_under_8','\0','Florida, FL',180000,'Front-End Web Developer'),(6,'The qualified candidate will be responsible for actively developing and maintaining solutions targeting next generation Digital Banking applications.\n\nResponsibilities will include, but are not limited to, the development of all server-side logic, definition and maintenance of the central data store, and ensuring high performance and responsiveness of requests from the front-end. This candidate will work to integrate services with the front-end application elements.','2_under_5','','Hawaii, HI',150000,'Back-end Web Developer'),(7,'This role will be joining a small team who are working on external facing web applications for end customers. This position is specifically for our Software as a Service (SaaS) web applications. These include configuration and purchasing of our products. You can view them here:\nFan Sizing/Configuration: https://specbuilder.captiveaire.com\n\nParts Purchasing: https://store.captiveaire.com\n\nThis position requires someone that has a passion for clean software design using C# and .NET. You should hav','5_under_8','','Minnesota, MN',260000,'Full-stack Web Developer'),(8,'Fragrance.com is seeking a Full Stack Developer to provide support for the e-commerce platform. This role is responsible for designing, coding and modifying the existing site(s) with a clear and user-friendly design and navigation.','5_under_8','','Mississippi, MS',180000,'Full-stack Web Developer'),(9,'The successful candidate will possess a diverse range of data-focused skills and experience, both technical and analytical. They will have a strong desire and capability for problem solving, data analysis and troubleshooting, analytical thinking, and experimentation.','1_under_2','','Oregon, OR',60000,'Data Scientist'),(10,'Hopper is looking for a data-savvy individual to join our team as a Data Scientist and lead data-centric product development and complex business intelligence projects within our core air travel business unit. Every day you would draw powerful insights from our real-time feed of billions of flight search results and archives of several trillion data points. To succeed at Hopper you need the talent, passion, and experience to thrive in a highly performing company.','5_under_8','','Pennsylvania, PA',260000,'Data Scientist'),(11,'Responsible for the collection, synthesis, and analysis of employee data to meet organizational objectives. Gains insight into key Human Resources related business opportunities and deliverables by applying statistical analysis techniques to examine structured and unstructured data from multiple disparate sources. Interprets results from multiple sources using a variety of techniques, ranging from simple data aggregation via statistical analysis to complex data mining. Uses advanced mathematical','1_under_2','','Rhode Island, RI',80000,'Data Scientist'),(12,'Data Scientist/Analyst to develop tools to process large data sets in order to categorize results, identify outliers/anomalies, visualize results for further investigation and analysis, and continually optimize processes to improve efficiency and accuracy of the data processing routines in a government-operated, Modeling and Simulation (M&S) lab facility. Candidates must be able to work both independently and as part of team. Candidates must be comfortable and capable of taking verbal and writte','8_under_15','','South Dakota, SD',400000,'Data Scientist'),(13,'We are looking for a Network Engineer who will be responsible for maintaining and administering our company s computer networks. Your primary duties will include maintenance of computer networks, hardware, software, and other related systems, performing disaster recovery operations, protecting data, software, and hardware from attacks, and replacing faulty network hardware components when necessary. You will also be working closely with the users of our network in order to identify potential iss','5_under_8','\0','Delaware, DE',260000,'Front-End Web Developer'),(14,'We are looking for a skilled Software Engineer who, along with our excellent software development team, will be responsible for working on projects that are currently being developed on by our company. Duties will include but are not limited to developing and directing software system validation and testing methods, as well as directing our software programming initiatives. You will also be working closely with clients and cross-functional departments to communicate project statuses and proposal','5_under_8','\0','Florida, FL',180000,'Front-End Web Developer'),(15,'The qualified candidate will be responsible for actively developing and maintaining solutions targeting next generation Digital Banking applications.\n\nResponsibilities will include, but are not limited to, the development of all server-side logic, definition and maintenance of the central data store, and ensuring high performance and responsiveness of requests from the front-end. This candidate will work to integrate services with the front-end application elements.','2_under_5','','Hawaii, HI',150000,'Back-end Web Developer'),(16,'This role will be joining a small team who are working on external facing web applications for end customers. This position is specifically for our Software as a Service (SaaS) web applications. These include configuration and purchasing of our products. You can view them here:\nFan Sizing/Configuration: https://specbuilder.captiveaire.com\n\nParts Purchasing: https://store.captiveaire.com\n\nThis position requires someone that has a passion for clean software design using C# and .NET. You should hav','5_under_8','','Minnesota, MN',260000,'Full-stack Web Developer'),(17,'Fragrance.com is seeking a Full Stack Developer to provide support for the e-commerce platform. This role is responsible for designing, coding and modifying the existing site(s) with a clear and user-friendly design and navigation.','5_under_8','','Mississippi, MS',180000,'Full-stack Web Developer'),(18,'H2O.ai is the open source leader in AI with a mission to democratize AI for everyone. H2O.ai is transforming the use of AI with software with its category-creating visionary open source machine learning platform, H2O. More than 18,000 companies use open-source H2O in mission-critical use cases for Finance, Insurance, Healthcare, Retail, Telco, Sales and Marketing. H2O Driverless AI uses AI to do AI in order to provide an easier, faster and cost-effective means of implementing data science. H2O.a','5_under_8','\0','Texas, TX',260000,'Data Scientist'),(19,'Join an elite group dedicated to continuous personal improvement as GCT is currently seeking Data Scientists of all levels to support an intelligence agency with insights gained from analyzing voluminous sensor data. The ideal candidate is adept at using large data sets to find opportunities for process optimization and using models to test the effectiveness of different courses of action. Candidates must have strong experience using a variety of data mining/data analysis methods, using a variet','5_under_8','\0','Utah, UT',180000,'Data Scientist'),(20,'This role offers an opportunity for candidates to expand their talents by participating directly in the design, development, deployment, and maintenance of customer facing web services. Individual visibility within the team is high, and opportunities for rapid advancement exist. All levels of Futurex developers work directly on production level code in a fast paced, results oriented environment on products with a rapid time to market.\nQualified candidates possess the ability to design service ba','5_under_8','','Iowa, IA',160000,'Back-end Web Developer'),(21,'Back end Developer on the Digital Product Group working in an agile, innovative, fast paced, diverse team of UX/UI design specialist, UX writers, UX strategist, scrum masters, and product owners. Our team is looking to expand our development capabilities with an inquisitive team player who isnt afraid to get dirty addressing a wide variety of back end and DevOps tasks across an evolving project landscape. You will move seamlessly between supporting customer facing projects and new test projects.','1_under_2','\0','Maine, ME',80000,'Back-end Web Developer'),(22,'Join our team and build next generation web applications used by millions! You will work to design, build, and run the cloud infrastructure and backend services powering this system, including APIs and data pipelines. We are looking for a highly self motivated individual with experience developing cloud applications and data pipelines who values automation, testing, and security.','5_under_8','\0','Maryland, MD',160000,'Back-end Web Developer'),(23,'Responsibilities will include, but are not limited to, the development of all server side logic, definition and maintenance of the central data store, and ensuring high performance and responsiveness of requests from the front end. This candidate will work to integrate services with the front end application elements.\n\nPosition Requirements:\nCandidate should have an advanced understanding of Open Source development technologies and tools as well as the ability to design/develop applications from','8_under_15','','Massachusetts, MA',400000,'Back-end Web Developer'),(24,'H2O.ai is the open source leader in AI with a mission to democratize AI for everyone. H2O.ai is transforming the use of AI with software with its category creating visionary open source machine learning platform, H2O. More than 18,000 companies use open source H2O in mission critical use cases for Finance, Insurance, Healthcare, Retail, Telco, Sales and Marketing. H2O Driverless AI uses AI to do AI in order to provide an easier, faster and cost effective means of implementing data science. H2O.a','5_under_8','\0','Texas, TX',260000,'Data Scientist'),(25,'Join an elite group dedicated to continuous personal improvement as GCT is currently seeking Data Scientists of all levels to support an intelligence agency with insights gained from analyzing voluminous sensor data. The ideal candidate is adept at using large data sets to find opportunities for process optimization and using models to test the effectiveness of different courses of action. Candidates must have strong experience using a variety of data mining/data analysis methods, using a variet','5_under_8','\0','Utah, UT',180000,'Data Scientist'),(26,'Responsibilities will include, but are not limited to, the development of all server side logic, definition and maintenance of the central data store, and ensuring high performance and responsiveness of requests from the front end. This candidate will work to integrate services with the front end application elements.\n\nPosition Requirements:\nCandidate should have an advanced understanding of Open Source development technologies and tools as well as the ability to design/develop applications from','8_under_15','','Massachusetts, MA',400000,'Back-end Web Developer'),(27,'H2O.ai is the open source leader in AI with a mission to democratize AI for everyone. H2O.ai is transforming the use of AI with software with its category creating visionary open source machine learning platform, H2O. More than 18,000 companies use open source H2O in mission critical use cases for Finance, Insurance, Healthcare, Retail, Telco, Sales and Marketing. H2O Driverless AI uses AI to do AI in order to provide an easier, faster and cost effective means of implementing data science. H2O.a','5_under_8','\0','Texas, TX',260000,'Data Scientist'),(28,'Join an elite group dedicated to continuous personal improvement as GCT is currently seeking Data Scientists of all levels to support an intelligence agency with insights gained from analyzing voluminous sensor data. The ideal candidate is adept at using large data sets to find opportunities for process optimization and using models to test the effectiveness of different courses of action. Candidates must have strong experience using a variety of data mining/data analysis methods, using a variet','5_under_8','\0','Utah, UT',180000,'Data Scientist'),(29,'Fragrance.com is seeking a Full Stack Developer to provide support for the e commerce platform. This role is responsible for designing, coding and modifying the existing site s  with a clear and user friendly design and navigation.','5_under_8','','Mississippi, MS',180000,'Full-stack Web Developer'),(30,'H2O.ai is the open source leader in AI with a mission to democratize AI for everyone. H2O.ai is transforming the use of AI with software with its category creating visionary open source machine learning platform, H2O. More than 18,000 companies use open source H2O in mission critical use cases for Finance, Insurance, Healthcare, Retail, Telco, Sales and Marketing. H2O Driverless AI uses AI to do AI in order to provide an easier, faster and cost effective means of implementing data science. H2O.a','5_under_8','\0','Texas, TX',260000,'Data Scientist'),(31,'Join an elite group dedicated to continuous personal improvement as GCT is currently seeking Data Scientists of all levels to support an intelligence agency with insights gained from analyzing voluminous sensor data. The ideal candidate is adept at using large data sets to find opportunities for process optimization and using models to test the effectiveness of different courses of action. Candidates must have strong experience using a variety of data mining/data analysis methods, using a variet','5_under_8','\0','Utah, UT',180000,'Data Scientist'),(32,'Covenant Eyes provides first class Internet accountability and Internet content filtering software. We develop custom webapps, as well as code for all major platforms  Windows, Mac, iOS, and Android. The Internet is expanding at light speed, and we must keep up with it. This presents our engineers with outstanding opportunities to use their software skills to develop innovative tools for protecting families on the Internet. We need experienced developers who are committed to teamwork in an agile','2_under_5','','Nebraska, NE',90000,'Full-stack Web Developer'),(33,'Write Python in our Django framework\n\nAutomate analyses and author pipelines via SQL and python based ETL framework.\n\nPartner cross functionally to identify opportunities for tools improvement.\n\nBuild, scale, and maintain data warehouse infrastructure\n\nRapidly prototype front end app','5_under_8','','Nevada, NV',260000,'Full-stack Web Developer'),(34,'Although we re looking for full stack developers your development skills and your character are more important so we re happy to taken on Node.js or React developers who don t have the full stack experience.\n\nThe position will be fully remote but we will all meet up every now and then during the year. You ll be working closely every day with the other developers, testers, and project manager.','5_under_8','','New Hampshire, NH',180000,'Full-stack Web Developer'),(35,'The Full Stack Web Developer will employ front end web technologies and Node.js in an embedded and cloud environment to bridge our Q SYS platform to the connected world. Q SYS is a fast growing, award winning, software and hardware platform encompassing cutting edge audio, video and control products. You will creatively leverage web technologies to develop a leading web monitoring and management platform while respecting the unique requirements and challenges of a real time distributed embedded ','2_under_5','\0','New Jersey, NJ',130000,'Full-stack Web Developer'),(36,'SEG is seeking a mid level, Full Stack Web Developer, with a proven track record of delivering high quality solutions, to fill a vacancy in the Modeling and Simulation Development Branch working on web application solutions and a variety of other exciting projects.','2_under_5','\0','New Mexico, NM',150000,'Full-stack Web Developer'),(37,'We are looking for seasoned Software Engineers with experience building large scale, distributed, and service oriented architectures. You feel comfortable switching hats between software development, business requirements gathering, devops tasks, and working with our machine learning experts. You take pride in owning and maintaining the technical work environment. You enjoy learning new technologies and sharing your code with others. Lastly, you have been looking for an opportunity where you can','5_under_8','','North Carolina, NC',260000,'Full-stack Web Developer'),(38,'We are seeking a creative Web Developer Front End to join our development team. You will develop and implement unique web based applications, working closely with team members and project managers.','5_under_8','','North Dakota, ND',180000,'Full-stack Web Developer'),(39,'We are actively seeking a Senior Data Scientist to join our rapidly growing Research and Development Department. The successful candidate will be responsible for developing and implementing environmental and geospatial models enabling field experimental design and optimization of product performance across testing environments. This person will work closely with Benson Hill data engineers, scientists and project leaders to maximize the impact of Benson Hill s product development programs.','5_under_8','','Ohio, OH',160000,'Data Scientist'),(40,'The Senior Data Scientist will build and improve analytic pipelines to consolidate multiple data sources, perform analytic processing, and produce actionable business information e.g., top 10 lists, pattern matches, exceptions, or lists of needles in the haystack . S/he will apply hands on development skills and experience as an expert in analytics, data science, pattern recognition, and prediction.','2_under_5','','Oklahoma, OK',150000,'Data Scientist'),(41,'The successful candidate will possess a diverse range of data focused skills and experience, both technical and analytical. They will have a strong desire and capability for problem solving, data analysis and troubleshooting, analytical thinking, and experimentation.','1_under_2','','Oregon, OR',60000,'Data Scientist'),(42,'Hopper is looking for a data savvy individual to join our team as a Data Scientist and lead data centric product development and complex business intelligence projects within our core air travel business unit. Every day you would draw powerful insights from our real time feed of billions of flight search results and archives of several trillion data points. To succeed at Hopper you need the talent, passion, and experience to thrive in a highly performing company.','5_under_8','','Pennsylvania, PA',260000,'Data Scientist'),(43,'Responsible for the collection, synthesis, and analysis of employee data to meet organizational objectives. Gains insight into key Human Resources related business opportunities and deliverables by applying statistical analysis techniques to examine structured and unstructured data from multiple disparate sources. Interprets results from multiple sources using a variety of techniques, ranging from simple data aggregation via statistical analysis to complex data mining. Uses advanced mathematical','1_under_2','','Rhode Island, RI',80000,'Data Scientist'),(44,'Affinity Solutions / Marketing Cloud seeks smart, curious, technically savvy candidates to join our cutting edge data science team. We hire the best and brightest and give them the opportunity to work on industry leading technologies.\n\nThe data sciences team at AFS/Marketing Cloud build models, machine learning algorithms that power all our ad tech/mar tech products at scale, develop methodology and tools to precisely and effectively measure market campaign effects, and research in house and pub','5_under_8','','South Carolina, SC',160000,'Data Scientist'),(45,'Data Scientist/Analyst to develop tools to process large data sets in order to categorize results, identify outliers/anomalies, visualize results for further investigation and analysis, and continually optimize processes to improve efficiency and accuracy of the data processing routines in a government operated, Modeling and Simulation M&S lab facility. Candidates must be able to work both independently and as part of team. Candidates must be comfortable and capable of taking verbal and written ','8_under_15','','South Dakota, SD',400000,'Data Scientist'),(46,'This role will be joining a small team who are working on external facing web applications for end customers. This position is specifically for our Software as a Service (SaaS) web applications. These include configuration and purchasing of our products. You can view them here:\nFan Sizing, Configuration: specbuilder.captiveaire.com\n\nParts Purchasing: store.captiveaire.com\n\nThis position requires someone that has a passion for clean software design using C# and .NET. You should have knowledge of ','5_under_8','','Minnesota, MN',260000,'Full-stack Web Developer'),(47,'Fragrance.com is seeking a Full Stack Developer to provide support for the e commerce platform. This role is responsible for designing, coding and modifying the existing site s  with a clear and user friendly design and navigation.','5_under_8','','Mississippi, MS',180000,'Full-stack Web Developer'),(48,'Under the guidance of the Director of IT Systems, the Full Stack Web Developer will develop, maintain, upgrade and provide support for all of the company s external and internal websites and applications. The NK Full Stack Web Developer will need to have a working knowledge of php, html, css, js, node js, sql, and other programming languages. The developer will be responsible for the functionality of multiple Magento 2 websites, a Shopify site, and 2 internal web applications. Applicants should ','5_under_8','','Missouri, MO',160000,'Full-stack Web Developer'),(49,'In this position you will create technical solutions in ETQ products through the entire development life cycle. As part of a scrum team, you will work with both classic enterprise system technologies as well as cutting edge technologies to support a cloud architecture for SaaS products.','2_under_5','','Montana, MT',150000,'Full-stack Web Developer'),(50,'Covenant Eyes provides first class Internet accountability and Internet content filtering software. We develop custom webapps, as well as code for all major platforms  Windows, Mac, iOS, and Android. The Internet is expanding at light speed, and we must keep up with it. This presents our engineers with outstanding opportunities to use their software skills to develop innovative tools for protecting families on the Internet. We need experienced developers who are committed to teamwork in an agile','2_under_5','','Nebraska, NE',90000,'Full-stack Web Developer'),(51,'Write Python in our Django framework\n\nAutomate analyses and author pipelines via SQL and python based ETL framework.\n\nPartner cross functionally to identify opportunities for tools improvement.\n\nBuild, scale, and maintain data warehouse infrastructure\n\nRapidly prototype front end app','5_under_8','','Nevada, NV',260000,'Full-stack Web Developer'),(52,'Although we re looking for full stack developers your development skills and your character are more important so we re happy to taken on Node.js or React developers who don t have the full stack experience.\n\nThe position will be fully remote but we will all meet up every now and then during the year. You ll be working closely every day with the other developers, testers, and project manager.','5_under_8','','New Hampshire, NH',180000,'Full-stack Web Developer'),(53,'The Full Stack Web Developer will employ front end web technologies and Node.js in an embedded and cloud environment to bridge our Q SYS platform to the connected world. Q SYS is a fast growing, award winning, software and hardware platform encompassing cutting edge audio, video and control products. You will creatively leverage web technologies to develop a leading web monitoring and management platform while respecting the unique requirements and challenges of a real time distributed embedded ','2_under_5','\0','New Jersey, NJ',130000,'Full-stack Web Developer'),(54,'SEG is seeking a mid level, Full Stack Web Developer, with a proven track record of delivering high quality solutions, to fill a vacancy in the Modeling and Simulation Development Branch working on web application solutions and a variety of other exciting projects.','2_under_5','\0','New Mexico, NM',150000,'Full-stack Web Developer'),(55,'We re looking for a Full Stack developer who will take a key role on our team. Our Full Stack developer must be ready to contribute in all stages of software development.\n\nYou ll be working alongside other developers, collaborating on the various layers of the infrastructure for our different products.\n\nThis is an ideal postion for people ready to learn as our technology stack is very diverse.','8_under_15','\0','New York, NY',350000,'Full-stack Web Developer'),(56,'We are looking for seasoned Software Engineers with experience building large scale, distributed, and service oriented architectures. You feel comfortable switching hats between software development, business requirements gathering, devops tasks, and working with our machine learning experts. You take pride in owning and maintaining the technical work environment. You enjoy learning new technologies and sharing your code with others. Lastly, you have been looking for an opportunity where you can','5_under_8','','North Carolina, NC',260000,'Full-stack Web Developer'),(57,'We are seeking a creative Web Developer Front End to join our development team. You will develop and implement unique web based applications, working closely with team members and project managers.','5_under_8','','North Dakota, ND',180000,'Full-stack Web Developer'),(58,'We are actively seeking a Senior Data Scientist to join our rapidly growing Research and Development Department. The successful candidate will be responsible for developing and implementing environmental and geospatial models enabling field experimental design and optimization of product performance across testing environments. This person will work closely with Benson Hill data engineers, scientists and project leaders to maximize the impact of Benson Hill s product development programs.','5_under_8','','Ohio, OH',160000,'Data Scientist'),(59,'The Senior Data Scientist will build and improve analytic pipelines to consolidate multiple data sources, perform analytic processing, and produce actionable business information e.g., top 10 lists, pattern matches, exceptions, or lists of needles in the haystack . S/he will apply hands on development skills and experience as an expert in analytics, data science, pattern recognition, and prediction.','2_under_5','','Oklahoma, OK',150000,'Data Scientist'),(60,'The successful candidate will possess a diverse range of data focused skills and experience, both technical and analytical. They will have a strong desire and capability for problem solving, data analysis and troubleshooting, analytical thinking, and experimentation.','1_under_2','','Oregon, OR',60000,'Data Scientist'),(61,'Hopper is looking for a data savvy individual to join our team as a Data Scientist and lead data centric product development and complex business intelligence projects within our core air travel business unit. Every day you would draw powerful insights from our real time feed of billions of flight search results and archives of several trillion data points. To succeed at Hopper you need the talent, passion, and experience to thrive in a highly performing company.','5_under_8','','Pennsylvania, PA',260000,'Data Scientist'),(62,'Responsible for the collection, synthesis, and analysis of employee data to meet organizational objectives. Gains insight into key Human Resources related business opportunities and deliverables by applying statistical analysis techniques to examine structured and unstructured data from multiple disparate sources. Interprets results from multiple sources using a variety of techniques, ranging from simple data aggregation via statistical analysis to complex data mining. Uses advanced mathematical','1_under_2','','Rhode Island, RI',80000,'Data Scientist'),(63,'Affinity Solutions / Marketing Cloud seeks smart, curious, technically savvy candidates to join our cutting edge data science team. We hire the best and brightest and give them the opportunity to work on industry leading technologies.\n\nThe data sciences team at AFS/Marketing Cloud build models, machine learning algorithms that power all our ad tech/mar tech products at scale, develop methodology and tools to precisely and effectively measure market campaign effects, and research in house and pub','5_under_8','','South Carolina, SC',160000,'Data Scientist'),(64,'Data Scientist/Analyst to develop tools to process large data sets in order to categorize results, identify outliers/anomalies, visualize results for further investigation and analysis, and continually optimize processes to improve efficiency and accuracy of the data processing routines in a government operated, Modeling and Simulation M&S lab facility. Candidates must be able to work both independently and as part of team. Candidates must be comfortable and capable of taking verbal and written ','8_under_15','','South Dakota, SD',400000,'Data Scientist'),(65,'As a Data Scientist, you will be a member of this diverse and highly skilled team. On any given day, you may be exploring new data sets with a business or IT partner, learning the intricacies of a business process, building models, or coordinating the productionalization of a model. You will use a variety of tools including SQL, Python, R, Spark, and shell scripting in a variety of environments including various databases, Linux servers, and Hadoop . You ll work in a highly collaborative, team e','1_under_2','\0','Tennessee, TN',75000,'Data Scientist'),(66,'H2O.ai is the open source leader in AI with a mission to democratize AI for everyone. H2O.ai is transforming the use of AI with software with its category creating visionary open source machine learning platform, H2O. More than 18,000 companies use open source H2O in mission critical use cases for Finance, Insurance, Healthcare, Retail, Telco, Sales and Marketing. H2O Driverless AI uses AI to do AI in order to provide an easier, faster and cost effective means of implementing data science. H2O.a','5_under_8','\0','Texas, TX',260000,'Data Scientist'),(67,'Join an elite group dedicated to continuous personal improvement as GCT is currently seeking Data Scientists of all levels to support an intelligence agency with insights gained from analyzing voluminous sensor data. The ideal candidate is adept at using large data sets to find opportunities for process optimization and using models to test the effectiveness of different courses of action. Candidates must have strong experience using a variety of data mining/data analysis methods, using a variet','5_under_8','\0','Utah, UT',180000,'Data Scientist'),(68,'The Climate Corporation s mission is to help the world s farmers sustainably increase their productivity with digital tools. The Data and Analytics team is focused on creating competitive advantage for The Climate Corporation and our customers through novel data infrastructure, metrics, insights, and data services. We are a small but rapidly growing data science and engineering team that builds and leverages state of the art analytics systems. Our work informs decisions and direction for our bus','5_under_8','','Vermont, VT',160000,'Data Scientist'),(69,'Hamilton Porter is a boutique recruiting firm and talent agency that partners with a variety of companies ranging from startups to Fortune 500 companies. Due to growth, one of our top clients is actively looking to hire a full time Senior Data Scientist. The opportunity would be working out of the company s beautiful headquarters in lower Manhattan, NYC although at this time all work is being performed 100% remote. The company hosts a fun and personable culture, nearing 200 in size. Offering a g','2_under_5','','Virginia, VA',150000,'Data Scientist');
+/*!40000 ALTER TABLE `jobs` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `profile_skill_mappings`
 --
 
 DROP TABLE IF EXISTS `profile_skill_mappings`;
-CREATE TABLE IF NOT EXISTS `profile_skill_mappings` (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `profile_skill_mappings` (
   `profile_id` bigint(20) NOT NULL,
   `skill_id` bigint(20) NOT NULL,
   PRIMARY KEY (`profile_id`,`skill_id`),
-  KEY `FKgyk9xy8tp42y7oqvpo3394psg` (`skill_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `FKgyk9xy8tp42y7oqvpo3394psg` (`skill_id`),
+  CONSTRAINT `FKgyk9xy8tp42y7oqvpo3394psg` FOREIGN KEY (`skill_id`) REFERENCES `skills` (`skill_id`),
+  CONSTRAINT `FKra5f6itu7dn9hsigdmg3nudv8` FOREIGN KEY (`profile_id`) REFERENCES `profiles` (`profile_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `profile_skill_mappings`
 --
 
-INSERT INTO `profile_skill_mappings` (`profile_id`, `skill_id`) VALUES
-(3, 6),
-(2, 7),
-(3, 13),
-(3, 26);
-
--- --------------------------------------------------------
+LOCK TABLES `profile_skill_mappings` WRITE;
+/*!40000 ALTER TABLE `profile_skill_mappings` DISABLE KEYS */;
+INSERT INTO `profile_skill_mappings` VALUES (3,19),(3,23),(3,29),(3,32),(3,70),(3,74),(4,70),(5,19),(5,24),(5,34),(5,70),(6,19),(6,23),(6,70);
+/*!40000 ALTER TABLE `profile_skill_mappings` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `profile_technology_mappings`
 --
 
 DROP TABLE IF EXISTS `profile_technology_mappings`;
-CREATE TABLE IF NOT EXISTS `profile_technology_mappings` (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `profile_technology_mappings` (
   `profile_id` bigint(20) NOT NULL,
   `tech_id` bigint(20) NOT NULL,
   PRIMARY KEY (`profile_id`,`tech_id`),
-  KEY `FKc0yw1fmcr522h06x5qpc7kdia` (`tech_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `FKc0yw1fmcr522h06x5qpc7kdia` (`tech_id`),
+  CONSTRAINT `FK479j20p77hp14af4a1xy8rcl8` FOREIGN KEY (`profile_id`) REFERENCES `profiles` (`profile_id`),
+  CONSTRAINT `FKc0yw1fmcr522h06x5qpc7kdia` FOREIGN KEY (`tech_id`) REFERENCES `technologies` (`tech_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `profile_technology_mappings`
 --
 
-INSERT INTO `profile_technology_mappings` (`profile_id`, `tech_id`) VALUES
-(2, 8),
-(3, 23),
-(3, 34);
+LOCK TABLES `profile_technology_mappings` WRITE;
+/*!40000 ALTER TABLE `profile_technology_mappings` DISABLE KEYS */;
+INSERT INTO `profile_technology_mappings` VALUES (3,34),(3,39),(3,44),(3,68),(4,44),(5,35),(5,39),(5,44),(6,34),(6,40),(6,43);
+/*!40000 ALTER TABLE `profile_technology_mappings` ENABLE KEYS */;
+UNLOCK TABLES;
 
--- --------------------------------------------------------
+--
+-- Table structure for table `profiles`
+--
+
+DROP TABLE IF EXISTS `profiles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `profiles` (
+  `profile_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `experience` varchar(500) DEFAULT NULL,
+  `job_expected` varchar(500) DEFAULT NULL,
+  `user_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`profile_id`),
+  KEY `FKbblggxqwpx9jkvoc2og3ii9h9` (`user_id`),
+  CONSTRAINT `FKbblggxqwpx9jkvoc2og3ii9h9` FOREIGN KEY (`user_id`) REFERENCES `credentials` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `profiles`
+--
+
+LOCK TABLES `profiles` WRITE;
+/*!40000 ALTER TABLE `profiles` DISABLE KEYS */;
+INSERT INTO `profiles` VALUES (3,'3-under-5','Data Scientist',7),(4,'3-under-5','Data Scientist',8),(5,'3-under-5','Data Scientist',6),(6,'1-under-3','Data Scientist',9);
+/*!40000 ALTER TABLE `profiles` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `skills`
 --
 
 DROP TABLE IF EXISTS `skills`;
-CREATE TABLE IF NOT EXISTS `skills` (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `skills` (
   `skill_id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(30) DEFAULT NULL,
+  `name` varchar(20) DEFAULT NULL,
   `level` varchar(20) DEFAULT NULL,
   `name_level` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`skill_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `skills`
 --
 
-INSERT INTO `skills` (`skill_id`, `name`, `level`, `name_level`) VALUES
-(1, 'HTML', '1', 'HTML_1'),
-(2, 'HTML', '2', 'HTML_2'),
-(3, 'HTML', '3', 'HTML_3'),
-(4, 'HTML', '4', 'HTML_4'),
-(5, 'HTML', '5', 'HTML_5'),
-(6, 'CSS', '1', 'CSS_1'),
-(7, 'CSS', '2', 'CSS_2'),
-(8, 'CSS', '3', 'CSS_3'),
-(9, 'CSS', '4', 'CSS_4'),
-(10, 'CSS', '5', 'CSS_5'),
-(11, 'Javascript', '1', 'Javascript_1'),
-(12, 'Javascript', '2', 'Javascript_2'),
-(13, 'Javascript', '3', 'Javascript_3'),
-(14, 'Javascript', '4', 'Javascript_4'),
-(15, 'Javascript', '5', 'Javascript_5'),
-(16, 'Machine learning', '1', 'Machine learning_1'),
-(17, 'Machine learning', '2', 'Machine learning_2'),
-(18, 'Machine learning', '3', 'Machine learning_3'),
-(19, 'Machine learning', '4', 'Machine learning_4'),
-(20, 'Machine learning', '5', 'Machine learning_5'),
-(21, 'Deep learning', '1', 'Deep learning_1'),
-(22, 'Deep learning', '2', 'Deep learning_2'),
-(23, 'Deep learning', '3', 'Deep learning_3'),
-(24, 'Deep learning', '4', 'Deep learning_4'),
-(25, 'Deep learning', '5', 'Deep learning_5'),
-(26, 'NLP', '1', 'NLP_1'),
-(27, 'NLP', '2', 'NLP_2'),
-(28, 'NLP', '3', 'NLP_3'),
-(29, 'NLP', '4', 'NLP_4'),
-(30, 'NLP', '5', 'NLP_5'),
-(31, 'Computer Vision', '1', 'Computer Vision_1'),
-(32, 'Computer Vision', '2', 'Computer Vision_2'),
-(33, 'Computer Vision', '3', 'Computer Vision_3'),
-(34, 'Computer Vision', '4', 'Computer Vision_4'),
-(35, 'Computer Vision', '5', 'Computer Vision_5'),
-(36, 'Data visualization', '1', 'Data visualization_1'),
-(37, 'Data visualization', '2', 'Data visualization_2'),
-(38, 'Data visualization', '3', 'Data visualization_3'),
-(39, 'Data visualization', '4', 'Data visualization_4'),
-(40, 'Data visualization', '5', 'Data visualization_5'),
-(41, 'jQuery', '1', 'jQuery_1'),
-(42, 'jQuery', '2', 'jQuery_2'),
-(43, 'jQuery', '3', 'jQuery_3'),
-(44, 'jQuery', '4', 'jQuery_4'),
-(45, 'jQuery', '5', 'jQuery_5'),
-(46, 'Ajax & JSON', '1', 'Ajax & JSON_1'),
-(47, 'Ajax & JSON', '2', 'Ajax & JSON_2'),
-(48, 'Ajax & JSON', '3', 'Ajax & JSON_3'),
-(49, 'Ajax & JSON', '4', 'Ajax & JSON_4'),
-(50, 'Ajax & JSON', '5', 'Ajax & JSON_5'),
-(51, 'MongoDB', '1', 'MongoDB_1'),
-(52, 'MongoDB', '2', 'MongoDB_2'),
-(53, 'MongoDB', '3', 'MongoDB_3'),
-(54, 'MongoDB', '4', 'MongoDB_4'),
-(55, 'MongoDB', '5', 'MongoDB_5'),
-(56, 'MySQL', '1', 'MySQL_1'),
-(57, 'MySQL', '2', 'MySQL_2'),
-(58, 'MySQL', '3', 'MySQL_3'),
-(59, 'MySQL', '4', 'MySQL_4'),
-(60, 'MySQL', '5', 'MySQL_5'),
-(61, 'Java', '1', 'Java_1'),
-(62, 'Java', '2', 'Java_2'),
-(63, 'Java', '3', 'Java_3'),
-(64, 'Java', '4', 'Java_4'),
-(65, 'Java', '5', 'Java_5'),
-(66, 'Python', '1', 'Python_1'),
-(67, 'Python', '2', 'Python_2'),
-(68, 'Python', '3', 'Python_3'),
-(69, 'Python', '4', 'Python_4'),
-(70, 'Python', '5', 'Python_5'),
-(71, 'R', '1', 'R_1'),
-(72, 'R', '2', 'R_2'),
-(73, 'R', '3', 'R_3'),
-(74, 'R', '4', 'R_4'),
-(75, 'R', '5', 'R_5');
-
--- --------------------------------------------------------
+LOCK TABLES `skills` WRITE;
+/*!40000 ALTER TABLE `skills` DISABLE KEYS */;
+INSERT INTO `skills` VALUES (1,'HTML','1','HTML_1'),(2,'HTML','2','HTML_2'),(3,'HTML','3','HTML_3'),(4,'HTML','4','HTML_4'),(5,'HTML','5','HTML_5'),(6,'CSS','1','CSS_1'),(7,'CSS','2','CSS_2'),(8,'CSS','3','CSS_3'),(9,'CSS','4','CSS_4'),(10,'CSS','5','CSS_5'),(11,'Javascript','1','Javascript_1'),(12,'Javascript','2','Javascript_2'),(13,'Javascript','3','Javascript_3'),(14,'Javascript','4','Javascript_4'),(15,'Javascript','5','Javascript_5'),(16,'Machine learning','1','Machine learning_1'),(17,'Machine learning','2','Machine learning_2'),(18,'Machine learning','3','Machine learning_3'),(19,'Machine learning','4','Machine learning_4'),(20,'Machine learning','5','Machine learning_5'),(21,'Deep learning','1','Deep learning_1'),(22,'Deep learning','2','Deep learning_2'),(23,'Deep learning','3','Deep learning_3'),(24,'Deep learning','4','Deep learning_4'),(25,'Deep learning','5','Deep learning_5'),(26,'NLP','1','NLP_1'),(27,'NLP','2','NLP_2'),(28,'NLP','3','NLP_3'),(29,'NLP','4','NLP_4'),(30,'NLP','5','NLP_5'),(31,'Computer Vision','1','Computer Vision_1'),(32,'Computer Vision','2','Computer Vision_2'),(33,'Computer Vision','3','Computer Vision_3'),(34,'Computer Vision','4','Computer Vision_4'),(35,'Computer Vision','5','Computer Vision_5'),(36,'Data visualization','1','Data visualization_1'),(37,'Data visualization','2','Data visualization_2'),(38,'Data visualization','3','Data visualization_3'),(39,'Data visualization','4','Data visualization_4'),(40,'Data visualization','5','Data visualization_5'),(41,'jQuery','1','jQuery_1'),(42,'jQuery','2','jQuery_2'),(43,'jQuery','3','jQuery_3'),(44,'jQuery','4','jQuery_4'),(45,'jQuery','5','jQuery_5'),(46,'Ajax & JSON','1','Ajax & JSON_1'),(47,'Ajax & JSON','2','Ajax & JSON_2'),(48,'Ajax & JSON','3','Ajax & JSON_3'),(49,'Ajax & JSON','4','Ajax & JSON_4'),(50,'Ajax & JSON','5','Ajax & JSON_5'),(51,'MongoDB','1','MongoDB_1'),(52,'MongoDB','2','MongoDB_2'),(53,'MongoDB','3','MongoDB_3'),(54,'MongoDB','4','MongoDB_4'),(55,'MongoDB','5','MongoDB_5'),(56,'MySQL','1','MySQL_1'),(57,'MySQL','2','MySQL_2'),(58,'MySQL','3','MySQL_3'),(59,'MySQL','4','MySQL_4'),(60,'MySQL','5','MySQL_5'),(61,'Java','1','Java_1'),(62,'Java','2','Java_2'),(63,'Java','3','Java_3'),(64,'Java','4','Java_4'),(65,'Java','5','Java_5'),(66,'Python','1','Python_1'),(67,'Python','2','Python_2'),(68,'Python','3','Python_3'),(69,'Python','4','Python_4'),(70,'Python','5','Python_5'),(71,'R','1','R_1'),(72,'R','2','R_2'),(73,'R','3','R_3'),(74,'R','4','R_4'),(75,'R','5','R_5');
+/*!40000 ALTER TABLE `skills` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `technologies`
 --
 
 DROP TABLE IF EXISTS `technologies`;
-CREATE TABLE IF NOT EXISTS `technologies` (
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `technologies` (
   `tech_id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(30) DEFAULT NULL,
+  `name` varchar(20) DEFAULT NULL,
   `level` varchar(20) DEFAULT NULL,
   `name_level` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`tech_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `technologies`
 --
 
-INSERT INTO `technologies` (`tech_id`, `name`, `level`, `name_level`) VALUES
-(1, 'NodeJS', '1', 'NodeJS_1'),
-(2, 'NodeJS', '2', 'NodeJS_2'),
-(3, 'NodeJS', '3', 'NodeJS_3'),
-(4, 'NodeJS', '4', 'NodeJS_4'),
-(5, 'NodeJS', '5', 'NodeJS_5'),
-(6, 'VueJS', '1', 'VueJS_1'),
-(7, 'VueJS', '2', 'VueJS_2'),
-(8, 'VueJS', '3', 'VueJS_3'),
-(9, 'VueJS', '4', 'VueJS_4'),
-(10, 'VueJS', '5', 'VueJS_5'),
-(11, 'React', '1', 'React_1'),
-(12, 'React', '2', 'React_2'),
-(13, 'React', '3', 'React_3'),
-(14, 'React', '4', 'React_4'),
-(15, 'React', '5', 'React_5'),
-(16, 'AngularJS', '1', 'AngularJS_1'),
-(17, 'AngularJS', '2', 'AngularJS_2'),
-(18, 'AngularJS', '3', 'AngularJS_3'),
-(19, 'AngularJS', '4', 'AngularJS_4'),
-(20, 'AngularJS', '5', 'AngularJS_5'),
-(21, 'Spring Boot', '1', 'Spring Boot_1'),
-(22, 'Spring Boot', '2', 'Spring Boot_2'),
-(23, 'Spring Boot', '3', 'Spring Boot_3'),
-(24, 'Spring Boot', '4', 'Spring Boot_4'),
-(25, 'Spring Boot', '5', 'Spring Boot_5'),
-(26, 'Django', '1', 'Django_1'),
-(27, 'Django', '2', 'Django_2'),
-(28, 'Django', '3', 'Django_3'),
-(29, 'Django', '4', 'Django_4'),
-(30, 'Django', '5', 'Django_5'),
-(31, 'Numpy', '1', 'Numpy_1'),
-(32, 'Numpy', '2', 'Numpy_2'),
-(33, 'Numpy', '3', 'Numpy_3'),
-(34, 'Numpy', '4', 'Numpy_4'),
-(35, 'Numpy', '5', 'Numpy_5'),
-(36, 'Pandas', '1', 'Pandas_1'),
-(37, 'Pandas', '2', 'Pandas_2'),
-(38, 'Pandas', '3', 'Pandas_3'),
-(39, 'Pandas', '4', 'Pandas_4'),
-(40, 'Pandas', '5', 'Pandas_5'),
-(41, 'Tensorflow', '1', 'Tensorflow_1'),
-(42, 'Tensorflow', '2', 'Tensorflow_2'),
-(43, 'Tensorflow', '3', 'Tensorflow_3'),
-(44, 'Tensorflow', '4', 'Tensorflow_4'),
-(45, 'Tensorflow', '5', 'Tensorflow_5'),
-(46, 'ExpressJS', '1', 'ExpressJS_1'),
-(47, 'ExpressJS', '2', 'ExpressJS_2'),
-(48, 'ExpressJS', '3', 'ExpressJS_3'),
-(49, 'ExpressJS', '4', 'ExpressJS_4'),
-(50, 'ExpressJS', '5', 'ExpressJS_5'),
-(51, 'PyTorch', '1', 'PyTorch_1'),
-(52, 'PyTorch', '2', 'PyTorch_2'),
-(53, 'PyTorch', '3', 'PyTorch_3'),
-(54, 'PyTorch', '4', 'PyTorch_4'),
-(55, 'PyTorch', '5', 'PyTorch_5'),
-(56, 'CNTK', '1', 'CNTK_1'),
-(57, 'CNTK', '2', 'CNTK_2'),
-(58, 'CNTK', '3', 'CNTK_3'),
-(59, 'CNTK', '4', 'CNTK_4'),
-(60, 'CNTK', '5', 'CNTK_5'),
-(61, 'TFLearn', '1', 'TFLearn_1'),
-(62, 'TFLearn', '2', 'TFLearn_2'),
-(63, 'TFLearn', '3', 'TFLearn_3'),
-(64, 'TFLearn', '4', 'TFLearn_4'),
-(65, 'TFLearn', '5', 'TFLearn_5'),
-(66, 'Scikit-Learn', '1', 'Scikit-Learn_1'),
-(67, 'Scikit-Learn', '2', 'Scikit-Learn_2'),
-(68, 'Scikit-Learn', '3', 'Scikit-Learn_3'),
-(69, 'Scikit-Learn', '4', 'Scikit-Learn_4'),
-(70, 'Scikit-Learn', '5', 'Scikit-Learn_5'),
-(71, 'Keras', '1', 'Keras_1'),
-(72, 'Keras', '2', 'Keras_2'),
-(73, 'Keras', '3', 'Keras_3'),
-(74, 'Keras', '4', 'Keras_4'),
-(75, 'Keras', '5', 'Keras_5'),
-(76, 'Ruby/Rails', '1', 'Ruby/Rails_1'),
-(77, 'Ruby/Rails', '2', 'Ruby/Rails_2'),
-(78, 'Ruby/Rails', '3', 'Ruby/Rails_3'),
-(79, 'Ruby/Rails', '4', 'Ruby/Rails_4'),
-(80, 'Ruby/Rails', '5', 'Ruby/Rails_5'),
-(81, 'Flask', '1', 'Flask_1'),
-(82, 'Flask', '2', 'Flask_2'),
-(83, 'Flask', '3', 'Flask_3'),
-(84, 'Flask', '4', 'Flask_4'),
-(85, 'Flask', '5', 'Flask_5');
+LOCK TABLES `technologies` WRITE;
+/*!40000 ALTER TABLE `technologies` DISABLE KEYS */;
+INSERT INTO `technologies` VALUES (1,'NodeJS','1','NodeJS_1'),(2,'NodeJS','2','NodeJS_2'),(3,'NodeJS','3','NodeJS_3'),(4,'NodeJS','4','NodeJS_4'),(5,'NodeJS','5','NodeJS_5'),(6,'VueJS','1','VueJS_1'),(7,'VueJS','2','VueJS_2'),(8,'VueJS','3','VueJS_3'),(9,'VueJS','4','VueJS_4'),(10,'VueJS','5','VueJS_5'),(11,'React','1','React_1'),(12,'React','2','React_2'),(13,'React','3','React_3'),(14,'React','4','React_4'),(15,'React','5','React_5'),(16,'AngularJS','1','AngularJS_1'),(17,'AngularJS','2','AngularJS_2'),(18,'AngularJS','3','AngularJS_3'),(19,'AngularJS','4','AngularJS_4'),(20,'AngularJS','5','AngularJS_5'),(21,'Spring Boot','1','Spring Boot_1'),(22,'Spring Boot','2','Spring Boot_2'),(23,'Spring Boot','3','Spring Boot_3'),(24,'Spring Boot','4','Spring Boot_4'),(25,'Spring Boot','5','Spring Boot_5'),(26,'Django','1','Django_1'),(27,'Django','2','Django_2'),(28,'Django','3','Django_3'),(29,'Django','4','Django_4'),(30,'Django','5','Django_5'),(31,'Numpy','1','Numpy_1'),(32,'Numpy','2','Numpy_2'),(33,'Numpy','3','Numpy_3'),(34,'Numpy','4','Numpy_4'),(35,'Numpy','5','Numpy_5'),(36,'Pandas','1','Pandas_1'),(37,'Pandas','2','Pandas_2'),(38,'Pandas','3','Pandas_3'),(39,'Pandas','4','Pandas_4'),(40,'Pandas','5','Pandas_5'),(41,'Tensorflow','1','Tensorflow_1'),(42,'Tensorflow','2','Tensorflow_2'),(43,'Tensorflow','3','Tensorflow_3'),(44,'Tensorflow','4','Tensorflow_4'),(45,'Tensorflow','5','Tensorflow_5'),(46,'ExpressJS','1','ExpressJS_1'),(47,'ExpressJS','2','ExpressJS_2'),(48,'ExpressJS','3','ExpressJS_3'),(49,'ExpressJS','4','ExpressJS_4'),(50,'ExpressJS','5','ExpressJS_5'),(51,'PyTorch','1','PyTorch_1'),(52,'PyTorch','2','PyTorch_2'),(53,'PyTorch','3','PyTorch_3'),(54,'PyTorch','4','PyTorch_4'),(55,'PyTorch','5','PyTorch_5'),(56,'CNTK','1','CNTK_1'),(57,'CNTK','2','CNTK_2'),(58,'CNTK','3','CNTK_3'),(59,'CNTK','4','CNTK_4'),(60,'CNTK','5','CNTK_5'),(61,'TFLearn','1','TFLearn_1'),(62,'TFLearn','2','TFLearn_2'),(63,'TFLearn','3','TFLearn_3'),(64,'TFLearn','4','TFLearn_4'),(65,'TFLearn','5','TFLearn_5'),(66,'Scikit-Learn','1','Scikit-Learn_1'),(67,'Scikit-Learn','2','Scikit-Learn_2'),(68,'Scikit-Learn','3','Scikit-Learn_3'),(69,'Scikit-Learn','4','Scikit-Learn_4'),(70,'Scikit-Learn','5','Scikit-Learn_5'),(71,'Keras','1','Keras_1'),(72,'Keras','2','Keras_2'),(73,'Keras','3','Keras_3'),(74,'Keras','4','Keras_4'),(75,'Keras','5','Keras_5'),(76,'Ruby/Rails','1','Ruby/Rails_1'),(77,'Ruby/Rails','2','Ruby/Rails_2'),(78,'Ruby/Rails','3','Ruby/Rails_3'),(79,'Ruby/Rails','4','Ruby/Rails_4'),(80,'Ruby/Rails','5','Ruby/Rails_5'),(81,'Flask','1','Flask_1'),(82,'Flask','2','Flask_2'),(83,'Flask','3','Flask_3'),(84,'Flask','4','Flask_4'),(85,'Flask','5','Flask_5');
+/*!40000 ALTER TABLE `technologies` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `job_skill_mappings`
---
-ALTER TABLE `job_skill_mappings`
-  ADD CONSTRAINT `FK4m7nswu5w3q0r4gsr6q10em1n` FOREIGN KEY (`skill_id`) REFERENCES `skills` (`skill_id`),
-  ADD CONSTRAINT `FKb18cfyxgm0mg7crhthvcu83qt` FOREIGN KEY (`job_id`) REFERENCES `jobs` (`job_id`);
-
---
--- Constraints for table `job_technology_mappings`
---
-ALTER TABLE `job_technology_mappings`
-  ADD CONSTRAINT `FKqpedbt40ekl36y3x718bq36da` FOREIGN KEY (`job_id`) REFERENCES `jobs` (`job_id`),
-  ADD CONSTRAINT `FKtog1hjfgel2cu8d04jmeobwx1` FOREIGN KEY (`tech_id`) REFERENCES `technologies` (`tech_id`);
-
---
--- Constraints for table `profiles`
---
-ALTER TABLE `profiles`
-  ADD CONSTRAINT `FKbblggxqwpx9jkvoc2og3ii9h9` FOREIGN KEY (`user_id`) REFERENCES `credentials` (`user_id`);
-
---
--- Constraints for table `profile_skill_mappings`
---
-ALTER TABLE `profile_skill_mappings`
-  ADD CONSTRAINT `FKgyk9xy8tp42y7oqvpo3394psg` FOREIGN KEY (`skill_id`) REFERENCES `skills` (`skill_id`),
-  ADD CONSTRAINT `FKra5f6itu7dn9hsigdmg3nudv8` FOREIGN KEY (`profile_id`) REFERENCES `profiles` (`profile_id`);
-
---
--- Constraints for table `profile_technology_mappings`
---
-ALTER TABLE `profile_technology_mappings`
-  ADD CONSTRAINT `FK479j20p77hp14af4a1xy8rcl8` FOREIGN KEY (`profile_id`) REFERENCES `profiles` (`profile_id`),
-  ADD CONSTRAINT `FKc0yw1fmcr522h06x5qpc7kdia` FOREIGN KEY (`tech_id`) REFERENCES `technologies` (`tech_id`);
-COMMIT;
-
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2020-05-13 16:00:03
